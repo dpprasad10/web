@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N. Durga Prasad — Curriculum Designer &amp; Academic Technology Professional</title>
+<meta name="description" content="N. Durga Prasad — Curriculum Designer and Academic Technology Professional with 12+ years in higher education and EdTech. Career record, skills, projects, and a resource library for students.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2316223B'/%3E%3Ctext x='32' y='40' font-family='monospace' font-size='20' fill='%23C49A3A' text-anchor='middle'%3ENDP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --paper:#EFF1EC;
+    --paper-line: rgba(22,34,59,0.05);
+    --card:#FBFAF5;
+    --ink:#16223B;
+    --ink-soft:rgba(22,34,59,0.68);
+    --ink-faint:rgba(22,34,59,0.45);
+    --rule:rgba(22,34,59,0.14);
+    --brass:#9C7A22;
+    --brass-bg:#EFE4C4;
+    --oxblood:#7A2E2A;
+    --oxblood-dark:#5E2220;
+    --forest:#2F4538;
+    --forest-bg:#E1E8E1;
+
+    --display:"Newsreader", Georgia, serif;
+    --body:"IBM Plex Sans", -apple-system, Segoe UI, sans-serif;
+    --mono:"IBM Plex Mono", "SF Mono", Menlo, monospace;
+
+    --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2rem; --s5:3rem; --s6:4.5rem; --s7:6rem;
+    --radius:3px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(to bottom, transparent, transparent 27px, var(--paper-line) 28px);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--oxblood);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--s4);}
+  @media (max-width:640px){ .wrap{padding:0 var(--s3);} }
+
+  .skip-link{position:absolute; left:-999px; top:0; background:var(--ink); color:#fff; padding:.5rem 1rem; z-index:200;}
+  .skip-link:focus{left:var(--s2); top:var(--s2);}
+
+  :focus-visible{outline:2px solid var(--oxblood); outline-offset:2px;}
+
+  h1,h2,h3,h4{font-family:var(--display); font-weight:600; margin:0; color:var(--ink); letter-spacing:-0.01em;}
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brass); margin:0 0 var(--s1) 0; font-weight:600;
+  }
+  .section-head{margin-bottom:var(--s4); max-width:680px;}
+  .section-head h2{font-size:clamp(1.6rem, 2.4vw, 2.1rem);}
+  .section-head p{color:var(--ink-soft); margin-top:var(--s2); font-size:1.02rem;}
+
+  section{padding:var(--s7) 0;}
+  section + section{border-top:1px solid var(--rule);}
+
+  .pill{
+    display:inline-flex; align-items:center; gap:.4em;
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.04em;
+    padding:.3rem .7rem; border:1px solid var(--rule); border-radius:999px; color:var(--ink-soft);
+    background:var(--card);
+  }
+
+  /* ============ HEADER ============ */
+  .site-header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(239,241,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .site-header .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{display:flex; align-items:center; gap:.65rem; text-decoration:none; color:var(--ink);}
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%; background:var(--ink); color:var(--brass-bg);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:.7rem; font-weight:600; letter-spacing:.02em;
+    border:1px solid var(--ink);
+  }
+  .brand-text{display:flex; flex-direction:column; line-height:1.1;}
+  .brand-text strong{font-family:var(--display); font-size:1.02rem;}
+  .brand-text span{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; color:var(--ink-faint); text-transform:uppercase;}
+
+  nav.primary-nav{display:flex; align-items:center; gap:var(--s4);}
+  nav.primary-nav ul{display:flex; gap:var(--s3); margin:0; padding:0; list-style:none;}
+  nav.primary-nav a{
+    color:var(--ink-soft); text-decoration:none; font-size:.92rem; font-weight:500;
+    padding:.3rem 0; border-bottom:2px solid transparent;
+  }
+  nav.primary-nav a:hover{color:var(--ink); border-bottom-color:var(--brass);}
+
+  .btn-print{
+    font-family:var(--mono); font-size:.76rem; letter-spacing:.04em; text-transform:uppercase;
+    background:transparent; border:1px solid var(--rule); color:var(--ink-soft);
+    padding:.5rem .8rem; border-radius:var(--radius); cursor:pointer;
+  }
+  .btn-print:hover{border-color:var(--ink); color:var(--ink);}
+
+  .nav-toggle{display:none; background:none; border:1px solid var(--rule); border-radius:var(--radius); width:40px; height:36px; cursor:pointer; align-items:center; justify-content:center;}
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:""; display:block; width:18px; height:2px; background:var(--ink); position:relative; transition:.2s;
+  }
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+
+  @media (max-width:880px){
+    nav.primary-nav{position:fixed; inset:64px 0 auto 0; background:var(--card); border-bottom:1px solid var(--rule);
+      flex-direction:column; align-items:stretch; padding:var(--s3) var(--s4); gap:var(--s2);
+      transform:translateY(-110%); transition:transform .25s ease; max-height:calc(100vh - 64px); overflow:auto;}
+    nav.primary-nav.open{transform:translateY(0);}
+    nav.primary-nav ul{flex-direction:column; gap:var(--s2);}
+    nav.primary-nav .btn-print{align-self:flex-start;}
+    .nav-toggle{display:flex;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{padding-top:var(--s6);}
+  .hero .wrap{display:grid; grid-template-columns:1.3fr 1fr; gap:var(--s6); align-items:start;}
+  @media (max-width:880px){ .hero .wrap{grid-template-columns:1fr; gap:var(--s4);} }
+
+  .hero-title{font-size:clamp(2.1rem, 4vw, 3.1rem); line-height:1.08;}
+  .hero-role{font-family:var(--mono); font-size:.95rem; color:var(--oxblood); margin-top:var(--s2); letter-spacing:.01em;}
+  .hero-summary{margin-top:var(--s3); color:var(--ink-soft); font-size:1.05rem; max-width:560px;}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:var(--s2); margin-top:var(--s4);}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:.94rem;
+    padding:.7rem 1.2rem; border-radius:var(--radius); text-decoration:none; cursor:pointer; border:1px solid transparent;
+    display:inline-flex; align-items:center; gap:.5rem;
+  }
+  .btn-primary{background:var(--oxblood); color:#fff;}
+  .btn-primary:hover{background:var(--oxblood-dark);}
+  .btn-ghost{background:transparent; border:1px solid var(--rule); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);}
+
+  .hero-contact{display:flex; flex-wrap:wrap; gap:var(--s3); margin-top:var(--s4); font-size:.92rem;}
+  .hero-contact a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule);}
+  .hero-contact a:hover{border-bottom-color:var(--ink);}
+
+  .hero-share{margin-top:var(--s3); display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; font-family:var(--mono); font-size:.76rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.06em;}
+  .icon-btn{
+    font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em;
+    background:var(--card); border:1px solid var(--rule); color:var(--ink-soft);
+    padding:.35rem .6rem; border-radius:var(--radius); cursor:pointer;
+  }
+  .icon-btn:hover{border-color:var(--ink); color:var(--ink);}
+
+  /* ledger box + seal */
+  .ledger-box{
+    background:var(--card); border:1px solid var(--rule); border-radius:var(--radius);
+    padding:var(--s4); position:relative;
+  }
+  .ledger-box dl{margin:0; display:grid; gap:var(--s2);}
+  .ledger-box dt{font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint);}
+  .ledger-box dd{margin:.15rem 0 0 0; font-family:var(--display); font-size:1.05rem;}
+  .ledger-row{border-top:1px solid var(--rule); padding-top:var(--s2);}
+  .ledger-row:first-child{border-top:none; padding-top:0;}
+
+  .seal{
+    position:absolute; top:-22px; right:-14px;
+    width:104px; height:104px; border-radius:50%;
+    background:var(--ink); color:var(--brass-bg);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transform:rotate(-7deg);
+    border:3px double var(--brass);
+    text-align:center; box-shadow:0 4px 10px rgba(22,34,59,0.18);
+  }
+  .seal strong{font-family:var(--display); font-size:1.4rem; line-height:1;}
+  .seal span{font-family:var(--mono); font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; margin-top:.2rem;}
+  @media (max-width:880px){ .seal{top:-18px; right:var(--s3);} }
+
+  /* ============ TIMELINE (Experience) ============ */
+  .timeline{position:relative; margin-top:var(--s2);}
+  .timeline::before{
+    content:""; position:absolute; left:64px; top:6px; bottom:6px; width:1px; background:var(--rule);
+  }
+  @media (max-width:640px){ .timeline::before{left:30px;} }
+
+  .entry{display:grid; grid-template-columns:128px 1fr; gap:var(--s4); margin-bottom:var(--s5); transition:opacity .5s ease, transform .5s ease;}
+  .entry.pending{opacity:0; transform:translateY(10px);}
+  @media (max-width:640px){ .entry{grid-template-columns:60px 1fr; gap:var(--s2);} }
+
+  .entry-marker{display:flex; flex-direction:column; align-items:center; padding-top:.2rem;}
+  .marker-dot{
+    width:62px; height:62px; border-radius:50%; background:var(--card); border:1.5px solid var(--oxblood);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:var(--mono); font-size:.6rem; line-height:1.15; color:var(--oxblood); font-weight:600;
+    flex-shrink:0; position:relative; z-index:2;
+  }
+  @media (max-width:640px){ .marker-dot{width:34px; height:34px; font-size:0; } .marker-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--oxblood);} }
+
+  .entry-card{background:var(--card); border:1px solid var(--rule); border-radius:var(--radius); padding:var(--s4);}
+  .entry-card h3{font-size:1.2rem;}
+  .entry-org{font-family:var(--mono); font-size:.82rem; color:var(--ink-soft); margin-top:.25rem;}
+  .entry-card ul{margin:var(--s2) 0 0 0; padding-left:1.1rem; color:var(--ink-soft);}
+  .entry-card li{margin-bottom:.4rem;}
+  .entry-card li::marker{color:var(--brass);}
+
+  /* ============ EDUCATION ============ */
+  .edu-table{margin-top:var(--s2); border:1px solid var(--rule); border-radius:var(--radius); overflow:hidden; background:var(--card);}
+  .edu-row{display:grid; grid-template-columns:72px 1fr 110px; gap:var(--s3); align-items:center; padding:var(--s3) var(--s4); border-bottom:1px solid var(--rule);}
+  .edu-row:last-child{border-bottom:none;}
+  @media (max-width:640px){ .edu-row{grid-template-columns:56px 1fr; row-gap:.3rem;} .edu-score{grid-column:2;} }
+  .edu-score-badge{
+    font-family:var(--mono); font-weight:600; font-size:.85rem; color:var(--forest); background:var(--forest-bg);
+    border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; text-align:center; line-height:1;
+  }
+  .edu-degree{font-family:var(--display); font-size:1.08rem;}
+  .edu-inst{color:var(--ink-soft); font-size:.92rem; margin-top:.15rem;}
+  .edu-score{font-family:var(--mono); font-size:.85rem; color:var(--ink-faint); text-align:right;}
+  @media (max-width:640px){ .edu-score{text-align:left;} }
+
+  /* ============ SKILLS ============ */
+  .skill-group{margin-bottom:var(--s4);}
+  .skill-group h3{font-family:var(--mono); font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink); font-weight:600; margin-bottom:var(--s2);}
+  .chip-row{display:flex; flex-wrap:wrap; gap:.5rem;}
+  .chip{
+    font-family:var(--mono); font-size:.78rem; color:var(--ink-soft);
+    background:var(--card); border:1px solid var(--rule); border-radius:var(--radius); padding:.35rem .65rem;
+  }
+
+  /* ============ PROJECTS ============ */
+  .project-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--s4); margin-top:var(--s2);}
+  @media (max-width:760px){ .project-grid{grid-template-columns:1fr;} }
+  .project-card{background:var(--card); border:1px solid var(--rule); border-radius:var(--radius); padding:var(--s4); transition:transform .2s ease, box-shadow .2s ease;}
+  .project-card:hover{transform:translateY(-3px); box-shadow:0 8px 18px rgba(22,34,59,0.1);}
+  .project-card h3{font-size:1.1rem;}
+  .project-meta{font-family:var(--mono); font-size:.74rem; color:var(--brass); text-transform:uppercase; letter-spacing:.05em; margin-top:.3rem;}
+  .project-card ul{margin:var(--s2) 0 0 0; padding-left:1.1rem; color:var(--ink-soft); font-size:.95rem;}
+  .project-card li{margin-bottom:.3rem;}
+
+  /* ============ WORKSHOPS ============ */
+  .ledger-list{margin-top:var(--s2); border-top:1px solid var(--rule);}
+  .ledger-list li{
+    list-style:none; display:flex; gap:var(--s3); padding:var(--s3) 0; border-bottom:1px solid var(--rule); color:var(--ink-soft);
+  }
+  .ledger-list li::before{content:"—"; color:var(--brass); font-family:var(--mono); flex-shrink:0;}
+
+  /* ============ STUDENT RESOURCES ============ */
+  .resources-intro{color:var(--ink-soft); max-width:680px; margin-top:var(--s2);}
+  .folder-tabs{display:flex; gap:.4rem; margin-top:var(--s5); flex-wrap:wrap;}
+  .folder-tabs .tab{
+    font-family:var(--mono); font-size:.78rem; letter-spacing:.02em;
+    background:var(--brass-bg); color:var(--ink-soft); border:1px solid var(--rule); border-bottom:none;
+    padding:.6rem 1rem .55rem; border-radius:6px 6px 0 0; cursor:pointer; position:relative; top:1px;
+  }
+  .folder-tabs .tab[aria-selected="true"]{
+    background:var(--card); color:var(--ink); font-weight:600; top:0; box-shadow:0 -2px 0 var(--oxblood) inset;
+  }
+  .mobile-cat-select{display:none; width:100%; margin-top:var(--s4); font-family:var(--mono); font-size:.85rem; padding:.6rem .8rem; border-radius:var(--radius); border:1px solid var(--rule); background:var(--card); color:var(--ink);}
+  @media (max-width:700px){
+    .folder-tabs{display:none;}
+    .mobile-cat-select{display:block;}
+  }
+
+  .panels-container{background:var(--card); border:1px solid var(--rule); border-radius:0 6px 6px 6px; padding:var(--s4);}
+  @media (max-width:700px){ .panels-container{border-radius:var(--radius); margin-top:0;} }
+
+  .panel-head{display:flex; justify-content:space-between; align-items:flex-start; gap:var(--s3); flex-wrap:wrap; border-bottom:1px solid var(--rule); padding-bottom:var(--s3); margin-bottom:var(--s3);}
+  .panel-hint{color:var(--ink-faint); font-size:.88rem; margin:0;}
+  .action-row{display:flex; gap:.4rem; flex-wrap:wrap;}
+  .action-row .icon-btn{white-space:nowrap;}
+
+  .resource-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--s2);}
+  .resource-item{
+    display:flex; justify-content:space-between; gap:var(--s3); flex-wrap:wrap;
+    border:1px solid var(--rule); border-radius:var(--radius); padding:var(--s3); background:var(--paper);
+  }
+  .resource-main{min-width:200px; flex:1;}
+  .resource-title{margin:0; font-weight:600;}
+  .resource-desc{margin:.3rem 0 0 0; color:var(--ink-soft); font-size:.92rem;}
+  .resource-link{font-family:var(--mono); font-size:.8rem; word-break:break-all; display:inline-block; margin-top:.4rem;}
+  .resource-actions{display:flex; gap:.4rem; flex-wrap:wrap; align-items:flex-start;}
+  .delete-btn{color:var(--oxblood); border-color:var(--rule);}
+  .delete-btn:hover{border-color:var(--oxblood);}
+  .empty-state{
+    border:1px dashed var(--rule); border-radius:var(--radius); padding:var(--s4); text-align:center;
+    color:var(--ink-faint); font-size:.92rem;
+  }
+
+  .add-form{margin-top:var(--s4); padding-top:var(--s4); border-top:1px solid var(--rule); display:grid; gap:.6rem; grid-template-columns:1fr 1fr; }
+  .add-form textarea{grid-column:1 / -1; resize:vertical; min-height:60px;}
+  .add-form button{grid-column:1 / -1; justify-self:start;}
+  @media (max-width:560px){ .add-form{grid-template-columns:1fr;} }
+  .add-form input, .add-form textarea{
+    font-family:var(--body); font-size:.92rem; padding:.6rem .75rem; border:1px solid var(--rule); border-radius:var(--radius);
+    background:var(--card); color:var(--ink);
+  }
+  .add-form input::placeholder, .add-form textarea::placeholder{color:var(--ink-faint);}
+
+  .session-note{
+    margin-top:var(--s3); font-size:.82rem; color:var(--ink-faint); display:flex; gap:.5rem; align-items:flex-start;
+  }
+
+  /* ============ FOOTER ============ */
+  footer{padding:var(--s6) 0 var(--s5); }
+  footer .wrap{display:flex; justify-content:space-between; gap:var(--s4); flex-wrap:wrap; align-items:flex-start;}
+  .footer-name{font-family:var(--display); font-size:1.3rem;}
+  .footer-contact{margin-top:var(--s2); color:var(--ink-soft); font-size:.92rem; display:flex; flex-direction:column; gap:.3rem;}
+  .footer-contact a{color:var(--ink); text-decoration:none;}
+  .footer-note{font-family:var(--mono); font-size:.74rem; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.04em;}
+
+  /* ============ TOAST ============ */
+  #toast{
+    position:fixed; bottom:var(--s4); left:50%; transform:translate(-50%, 20px);
+    background:var(--ink); color:#fff; padding:.65rem 1.1rem; border-radius:var(--radius);
+    font-family:var(--mono); font-size:.82rem; opacity:0; pointer-events:none; transition:opacity .25s ease, transform .25s ease;
+    z-index:300; max-width:90vw; text-align:center;
+  }
+  #toast.show{opacity:1; transform:translate(-50%, 0);}
+
+  /* ============ PRINT ============ */
+  @media print{
+    body{background:#fff; background-image:none;}
+    .site-header, .hero-ctas, .hero-share, #student-resources, footer .icon-btn, #toast, .nav-toggle{display:none !important;}
+    section{padding:1.2rem 0;}
+    .seal{display:none;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-mark">NDP</span>
+      <span class="brand-text"><strong>N. Durga Prasad</strong><span>Est. 2011 · EdTech</span></span>
+    </a>
+    <nav class="primary-nav" id="primaryNav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#student-resources">Student Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn-print" id="printBtn" type="button">Save profile as PDF</button>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1 class="hero-title">N. Durga&nbsp;Prasad</h1>
+        <p class="hero-role">Curriculum Designer &amp; Academic Technology Professional</p>
+        <p class="hero-summary">12+ years across higher education and EdTech, building curriculum, assessments, learning paths, and digital learning operations — and helping faculty and learners use AI tools well along the way.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#student-resources">Share resources with students</a>
+          <a class="btn btn-ghost" href="#experience">View career record</a>
+        </div>
+        <div class="hero-contact">
+          <a href="mailto:dp.prasad10@gmail.com">dp.prasad10@gmail.com</a>
+          <a href="tel:+919491385783">+91 94913 85783</a>
+          <span class="pill">Narsipatnam, Andhra Pradesh</span>
+        </div>
+        <div class="hero-share">
+          <span>Share this profile:</span>
+          <button class="icon-btn" onclick="shareProfile('whatsapp')">WhatsApp</button>
+          <button class="icon-btn" onclick="shareProfile('email')">Email</button>
+          <button class="icon-btn" onclick="shareProfile('copy')">Copy</button>
+        </div>
+      </div>
+
+      <div class="ledger-box">
+        <div class="seal"><strong>12+</strong><span>Years in EdTech</span></div>
+        <dl>
+          <div class="ledger-row">
+            <dt>Institutions &amp; employers</dt>
+            <dd>GVP College of Engineering · Futurense Technologies · Voyce Global · ANITS</dd>
+          </div>
+          <div class="ledger-row">
+            <dt>Platforms administered</dt>
+            <dd>Moodle, Totara Learn, Canvas LMS, SumTotal, Docebo, CSOD</dd>
+          </div>
+          <div class="ledger-row">
+            <dt>Programs supported</dt>
+            <dd>AI &amp; Data Analytics, Full Stack Development, Engineering Curricula</dd>
+          </div>
+          <div class="ledger-row">
+            <dt>Current role</dt>
+            <dd>LMS Administrator, Anil Neerukonda Institute of Technology and Sciences</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Profile</p>
+        <h2>Professional Summary</h2>
+      </div>
+      <p style="max-width:720px; font-size:1.05rem; color:var(--ink-soft);">
+        Curriculum Designer and Academic Technology Professional with 12+ years of experience in higher education and EdTech. Skilled in curriculum design, assessments, learning paths, trainer support, and digital learning delivery — with hands-on experience developing learning content for AI, data analytics, and technology programs.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Career Record</p>
+        <h2>Professional Experience</h2>
+        <p>Four roles, one throughline: making curriculum and learning platforms work for the people using them.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="entry">
+          <div class="entry-marker"><div class="marker-dot">2025—<br>NOW</div></div>
+          <div class="entry-card">
+            <h3>LMS Administrator</h3>
+            <p class="entry-org">Anil Neerukonda Institute of Technology and Sciences · Jun 2025 – Present</p>
+            <ul>
+              <li>Designs academic content, lesson plans, study materials, and assessments using AI tools like ChatGPT and Canva.</li>
+              <li>Works with faculty teams to support smooth course delivery and digital learning workflows.</li>
+              <li>Monitors faculty uploads such as attendance, marks, and lesson plans, and manages student enrolment, batches, and academic data accuracy.</li>
+              <li>Coordinates exam setup, mark entry, and verification, ensuring compliance with institutional standards for content and assessments.</li>
+              <li>Coordinates with technical teams to resolve system issues, using tools like Grammarly and Microsoft Copilot for content review and documentation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-marker"><div class="marker-dot">2023—<br>2025</div></div>
+          <div class="entry-card">
+            <h3>Sr. LMS Specialist</h3>
+            <p class="entry-org">Voyce Global · Aug 2023 – Feb 2025</p>
+            <ul>
+              <li>Supported technology-driven learning delivery and coordinated digital learning operations across enterprise programs.</li>
+              <li>Generated and analysed reports to track learner progress and training effectiveness.</li>
+              <li>Integrated LTI tools (Zoom) and managed user roles for learners, instructors, and administrators.</li>
+              <li>Configured certifications, learning paths, reports, gamification, and platform branding.</li>
+              <li>Collaborated with subject matter experts to develop interactive content using Articulate Storyline and H5P.</li>
+              <li>Oversaw LMS server maintenance, API integrations, and Single Sign-On (SSO) implementations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-marker"><div class="marker-dot">2022—<br>2023</div></div>
+          <div class="entry-card">
+            <h3>Manager – LMS</h3>
+            <p class="entry-org">Futurense Technologies Private Limited, Bengaluru · Feb 2022 – Jul 2023</p>
+            <ul>
+              <li>Supported AI, Data Analytics, and Full Stack Development learning programs.</li>
+              <li>Designed learning paths, assessments, rubrics, and project-based learning activities.</li>
+              <li>Conducted trainer enablement and faculty onboarding sessions.</li>
+              <li>Integrated tools such as Zoom and Examly, and configured certifications, reports, and gamification features.</li>
+              <li>Worked with SMEs to develop interactive learning content and managed LMS operations and integrations.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-marker"><div class="marker-dot">2011—<br>2022</div></div>
+          <div class="entry-card">
+            <h3>Developer &amp; LMS Administrator</h3>
+            <p class="entry-org">Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam · Nov 2011 – Feb 2022</p>
+            <ul>
+              <li>Supported curriculum implementation and digital learning delivery for engineering programs.</li>
+              <li>Managed learning activities, quizzes, SCORM packages, and feedback systems.</li>
+              <li>Developed web applications using HTML, CSS, JavaScript, jQuery, and Java.</li>
+              <li>Coordinated quality assurance activities and prepared NBA SAR reports.</li>
+              <li>Conducted remedial classes and student mentoring sessions, and taught core computer science subjects.</li>
+              <li>Contributed to curriculum development and academic planning initiatives.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Academic Record</p>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-table">
+        <div class="edu-row">
+          <span class="edu-score-badge">69.9%</span>
+          <div><div class="edu-degree">M.Tech in Software Engineering</div><div class="edu-inst">Avanthi Institute of Engineering and Technology, JNTU Kakinada</div></div>
+          <span class="edu-score">Postgraduate</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-score-badge">61%</span>
+          <div><div class="edu-degree">B.Tech in Computer Science &amp; Engineering</div><div class="edu-inst">Sri Prakash College of Engineering, JNTU Hyderabad</div></div>
+          <span class="edu-score">Undergraduate</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-score-badge">84%</span>
+          <div><div class="edu-degree">Intermediate</div><div class="edu-inst">Alfa Jr. College</div></div>
+          <span class="edu-score">Pre-university</span>
+        </div>
+        <div class="edu-row">
+          <span class="edu-score-badge">77%</span>
+          <div><div class="edu-degree">S.S.C.</div><div class="edu-inst">Secondary School Certificate</div></div>
+          <span class="edu-score">Secondary</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Core Competencies</p>
+        <h2>Technical Skills</h2>
+      </div>
+
+      <div class="skill-group">
+        <h3>Curriculum &amp; Instructional Design</h3>
+        <div class="chip-row">
+          <span class="chip">Curriculum architecture</span><span class="chip">Weekly learning plans</span>
+          <span class="chip">Project-based learning</span><span class="chip">Assessments &amp; rubrics</span>
+          <span class="chip">Facilitator guides</span><span class="chip">Trainer enablement</span>
+          <span class="chip">Learning path design</span><span class="chip">Certification standards &amp; workflows</span>
+          <span class="chip">Academic content structuring</span><span class="chip">Digital learning delivery</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Technical &amp; Learning Platforms</h3>
+        <div class="chip-row">
+          <span class="chip">Moodle</span><span class="chip">Totara Learn</span><span class="chip">Canvas LMS</span>
+          <span class="chip">SumTotal</span><span class="chip">Docebo</span><span class="chip">CSOD</span>
+          <span class="chip">AI &amp; data learning program coordination</span><span class="chip">Virtual classroom tools</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Learning Technologies &amp; Standards</h3>
+        <div class="chip-row">
+          <span class="chip">SCORM</span><span class="chip">xAPI</span><span class="chip">LTI integrations</span>
+          <span class="chip">API integrations</span><span class="chip">SSO</span><span class="chip">Zoom integration</span>
+          <span class="chip">Virtual learning environments</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Academic Operations &amp; Analytics</h3>
+        <div class="chip-row">
+          <span class="chip">Learner progress tracking</span><span class="chip">Assessment reporting</span>
+          <span class="chip">Academic data validation</span><span class="chip">Certification tracking</span>
+          <span class="chip">Dashboards</span><span class="chip">Performance analytics</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Content &amp; Authoring Tools</h3>
+        <div class="chip-row">
+          <span class="chip">Articulate Storyline</span><span class="chip">H5P</span>
+          <span class="chip">SCORM package deployment</span><span class="chip">Question banks</span><span class="chip">Quiz configuration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Project Log</p>
+        <h2>Key Projects</h2>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>University LMS</h3>
+          <p class="project-meta">Client: Jain University · Role: Manager – LMS</p>
+          <ul>
+            <li>Administered Moodle LMS for university-wide curriculum delivery.</li>
+            <li>Integrated Zoom, Coursera, and McGraw Hill platforms.</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3>Totara Learn LMS</h3>
+          <p class="project-meta">Client: Futurense Technologies</p>
+          <ul>
+            <li>Managed LMS and learning delivery for enterprise training in Data Analytics, AI-focused learning pathways, and Java Full Stack Development.</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3>Student Enrollment System</h3>
+          <p class="project-meta">GVP College of Engineering</p>
+          <ul>
+            <li>Developed a web-based student registration system using HTML, JavaScript, and Java.</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3>Recruitment Web Application</h3>
+          <p class="project-meta">GVP College of Engineering</p>
+          <ul>
+            <li>Designed and implemented a recruitment management system for job aspirants and administrators.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKSHOPS ============ -->
+  <section id="workshops">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Faculty Development</p>
+        <h2>Workshops &amp; Trainings</h2>
+      </div>
+      <ul class="ledger-list">
+        <li>Organized national workshops on quality assurance and pedagogy in technical education.</li>
+        <li>Participated in the WIPRO Mission 10X Workshop on High-Impact Teaching Skills.</li>
+        <li>Attended the Infosys Deep Dive Faculty Enablement Program.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ STUDENT RESOURCES ============ -->
+  <section id="student-resources">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Resource Library</p>
+        <h2>Share With Your Students</h2>
+        <p class="resources-intro">Drop in notes, assignments, announcements, or exam prep by category, then send them straight to WhatsApp or email — or copy them for wherever your class actually lives.</p>
+      </div>
+
+      <div class="folder-tabs" id="tabsContainer" role="tablist" aria-label="Resource categories"></div>
+      <select class="mobile-cat-select" id="mobileSelect" aria-label="Choose a resource category"></select>
+
+      <div class="panels-container" id="panelsContainer"></div>
+
+      <p class="session-note">Note: resources added here live only in this browser tab for this visit — they reset on reload, so share or copy what you need before closing the page.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div class="footer-name">N. Durga Prasad</div>
+      <div class="footer-contact">
+        <a href="mailto:dp.prasad10@gmail.com">dp.prasad10@gmail.com</a>
+        <a href="tel:+919491385783">+91 94913 85783</a>
+        <span>Narsipatnam, Andhra Pradesh, India</span>
+      </div>
+    </div>
+    <div class="footer-note">Curriculum Designer &amp; Academic Technology Professional · <span id="year"></span></div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- footer year ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- nav toggle (mobile) ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var primaryNav = document.getElementById('primaryNav');
+  navToggle.addEventListener('click', function(){
+    var open = primaryNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  primaryNav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ primaryNav.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); });
+  });
+
+  /* ---------- print ---------- */
+  document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+
+  /* ---------- toast ---------- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- share helper ---------- */
+  function shareText(text, channel){
+    if(channel === 'whatsapp'){
+      window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+    } else if(channel === 'email'){
+      window.location.href = 'mailto:?subject=' + encodeURIComponent('Shared by N. Durga Prasad') + '&body=' + encodeURIComponent(text);
+    } else if(channel === 'copy'){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showToast('Copied to clipboard'); })
+          .catch(function(){ showToast('Could not copy — please copy manually'); });
+      } else {
+        showToast('Copy not supported in this browser');
+      }
+    }
+  }
+
+  var PROFILE_TEXT = [
+    'N. Durga Prasad',
+    'Curriculum Designer & Academic Technology Professional',
+    '12+ years in higher education & EdTech',
+    'Email: dp.prasad10@gmail.com',
+    'Mobile: +91 94913 85783'
+  ].join('\n');
+  window.shareProfile = function(channel){ shareText(PROFILE_TEXT, channel); };
+
+  /* ---------- escaping ---------- */
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(c){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+    });
+  }
+
+  /* ---------- resource library ---------- */
+  var CATEGORIES = [
+    {key:'study', label:'Study Materials', hint:'Notes, slides, reading lists, recordings.'},
+    {key:'assignments', label:'Assignments', hint:'Problem sets, worksheets, project briefs.'},
+    {key:'announcements', label:'Announcements', hint:'Class updates, schedule changes, reminders.'},
+    {key:'exam', label:'Exam Prep', hint:'Revision guides, sample papers, mark schemes.'},
+    {key:'ai-tips', label:'AI Tools & Tips', hint:'Prompting guides, tool walk-throughs, demos.'}
+  ];
+
+  var resourceData = {
+    study: [],
+    assignments: [],
+    announcements: [{id:1, title:'Welcome note — example entry', description:'This is a sample so you can see how sharing works. Delete it, then add your own announcements here.', link:''}],
+    exam: [],
+    'ai-tips': []
+  };
+  var nextId = 2;
+
+  function categoryLabel(key){
+    var c = CATEGORIES.filter(function(c){ return c.key === key; })[0];
+    return c ? c.label : key;
+  }
+
+  function buildItemText(item){
+    return [item.title, item.description, item.link].filter(Boolean).join('\n');
+  }
+  function buildCategoryText(key){
+    var items = resourceData[key];
+    var header = categoryLabel(key) + ' — from N. Durga Prasad';
+    if(!items.length){ return header + '\n\nNo resources added yet.'; }
+    return header + '\n\n' + items.map(buildItemText).join('\n\n');
+  }
+
+  window.shareItem = function(cat, id, channel){
+    var item = resourceData[cat].filter(function(i){ return i.id === id; })[0];
+    if(!item) return;
+    shareText(buildItemText(item), channel);
+  };
+  window.shareCategory = function(cat, channel){
+    shareText(buildCategoryText(cat), channel);
+  };
+  window.deleteItem = function(cat, id){
+    resourceData[cat] = resourceData[cat].filter(function(i){ return i.id !== id; });
+    renderList(cat);
+    showToast('Removed');
+  };
+
+  function renderList(cat){
+    var ul = document.getElementById('list-' + cat);
+    if(!ul) return;
+    var items = resourceData[cat];
+    if(!items.length){
+      ul.innerHTML = '<li class="empty-state">No resources here yet. Add the first one below — it\'ll be ready to share in one tap.</li>';
+      return;
+    }
+    ul.innerHTML = items.map(function(item){
+      return '' +
+        '<li class="resource-item">' +
+          '<div class="resource-main">' +
+            '<p class="resource-title">' + escapeHtml(item.title) + '</p>' +
+            (item.description ? '<p class="resource-desc">' + escapeHtml(item.description) + '</p>' : '') +
+            (item.link ? '<a class="resource-link" href="' + escapeHtml(item.link) + '" target="_blank" rel="noopener">' + escapeHtml(item.link) + '</a>' : '') +
+          '</div>' +
+          '<div class="resource-actions">' +
+            '<button class="icon-btn" onclick="shareItem(\'' + cat + '\', ' + item.id + ', \'whatsapp\')">WhatsApp</button>' +
+            '<button class="icon-btn" onclick="shareItem(\'' + cat + '\', ' + item.id + ', \'email\')">Email</button>' +
+            '<button class="icon-btn" onclick="shareItem(\'' + cat + '\', ' + item.id + ', \'copy\')">Copy</button>' +
+            '<button class="icon-btn delete-btn" onclick="deleteItem(\'' + cat + '\', ' + item.id + ')">Delete</button>' +
+          '</div>' +
+        '</li>';
+    }).join('');
+  }
+
+  window.handleAdd = function(ev, cat){
+    ev.preventDefault();
+    var form = ev.target;
+    var title = form.querySelector('.f-title').value.trim();
+    var link = form.querySelector('.f-link').value.trim();
+    var desc = form.querySelector('.f-desc').value.trim();
+    if(!title){
+      showToast('Add a title before saving');
+      form.querySelector('.f-title').focus();
+      return false;
+    }
+    resourceData[cat].push({id: nextId++, title: title, link: link, description: desc});
+    form.reset();
+    renderList(cat);
+    showToast('Added — ready to share');
+    return false;
+  };
+
+  function buildTabsAndPanels(){
+    var tabsContainer = document.getElementById('tabsContainer');
+    var select = document.getElementById('mobileSelect');
+    var panelsContainer = document.getElementById('panelsContainer');
+
+    tabsContainer.innerHTML = CATEGORIES.map(function(c, i){
+      return '<button class="tab" role="tab" id="tab-' + c.key + '" aria-selected="' + (i === 0) + '" data-cat="' + c.key + '">' + escapeHtml(c.label) + '</button>';
+    }).join('');
+
+    select.innerHTML = CATEGORIES.map(function(c){
+      return '<option value="' + c.key + '">' + escapeHtml(c.label) + '</option>';
+    }).join('');
+
+    panelsContainer.innerHTML = CATEGORIES.map(function(c, i){
+      return '' +
+        '<section class="panel" id="panel-' + c.key + '" data-cat="' + c.key + '" ' + (i === 0 ? '' : 'hidden') + '>' +
+          '<div class="panel-head">' +
+            '<p class="panel-hint">' + escapeHtml(c.hint) + '</p>' +
+            '<div class="action-row">' +
+              '<button class="icon-btn" onclick="shareCategory(\'' + c.key + '\', \'whatsapp\')">Share all · WhatsApp</button>' +
+              '<button class="icon-btn" onclick="shareCategory(\'' + c.key + '\', \'email\')">Share all · Email</button>' +
+              '<button class="icon-btn" onclick="shareCategory(\'' + c.key + '\', \'copy\')">Copy all</button>' +
+            '</div>' +
+          '</div>' +
+          '<ul class="resource-list" id="list-' + c.key + '"></ul>' +
+          '<form class="add-form" onsubmit="return handleAdd(event, \'' + c.key + '\')">' +
+            '<input class="f-title" type="text" placeholder="Title — e.g. Week 6 lecture notes" required>' +
+            '<input class="f-link" type="url" placeholder="Link (optional)">' +
+            '<textarea class="f-desc" placeholder="Short note for students (optional)"></textarea>' +
+            '<button class="btn btn-ghost" type="submit">Add to ' + escapeHtml(c.label) + '</button>' +
+          '</form>' +
+        '</section>';
+    }).join('');
+  }
+
+  function switchCategory(key){
+    CATEGORIES.forEach(function(c){
+      var panel = document.getElementById('panel-' + c.key);
+      var tab = document.getElementById('tab-' + c.key);
+      if(panel) panel.hidden = (c.key !== key);
+      if(tab) tab.setAttribute('aria-selected', c.key === key ? 'true' : 'false');
+    });
+    document.getElementById('mobileSelect').value = key;
+  }
+
+  function initResourceLibrary(){
+    buildTabsAndPanels();
+    CATEGORIES.forEach(function(c){ renderList(c.key); });
+    switchCategory(CATEGORIES[0].key);
+
+    document.getElementById('tabsContainer').addEventListener('click', function(e){
+      var btn = e.target.closest ? e.target.closest('.tab') : null;
+      if(btn) switchCategory(btn.getAttribute('data-cat'));
+    });
+    document.getElementById('mobileSelect').addEventListener('change', function(e){
+      switchCategory(e.target.value);
+    });
+  }
+  initResourceLibrary();
+
+  /* ---------- scroll reveal for timeline entries ---------- */
+  if('IntersectionObserver' in window){
+    var entryEls = document.querySelectorAll('.entry');
+    entryEls.forEach(function(el){ el.classList.add('pending'); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.remove('pending'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.15});
+    entryEls.forEach(function(el){ io.observe(el); });
+  }
+  /* if IntersectionObserver isn't supported, entries simply stay visible (no .pending class added) */
+})();
+</script>
+</body>
+</html>
