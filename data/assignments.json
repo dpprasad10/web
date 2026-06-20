@@ -1,0 +1,74 @@
+[
+  {
+    "id": "a1",
+    "title": "Assignment 1: Search Paradigms",
+    "unit": "Unit 1",
+    "dueDate": "2026-02-10",
+    "description": "Implement complete search with pruning and a greedy solution for the activity selection problem. Submit source files with sample test runs.",
+    "file": "assets/pdfs/assignment-1.pdf",
+    "maxMarks": 10
+  },
+  {
+    "id": "a2",
+    "title": "Assignment 2: Sorting & Searching",
+    "unit": "Unit 1",
+    "dueDate": "2026-02-24",
+    "description": "Implement counting sort, radix sort, and ternary search. Compare empirical runtimes against std::sort on inputs of size 10^5 and 10^6.",
+    "file": "assets/pdfs/assignment-2.pdf",
+    "maxMarks": 10
+  },
+  {
+    "id": "a3",
+    "title": "Assignment 3: Bitmasks & Tries",
+    "unit": "Unit 2",
+    "dueDate": "2026-03-10",
+    "description": "Build a trie supporting insert/search/prefix-count, then solve two bitmask DP problems from the practice set.",
+    "file": "assets/pdfs/assignment-3.pdf",
+    "maxMarks": 15
+  },
+  {
+    "id": "a4",
+    "title": "Assignment 4: String Algorithms",
+    "unit": "Unit 2",
+    "dueDate": "2026-03-24",
+    "description": "Implement the Z-function and a double-hashing scheme for substring matching; report collision rates on the provided test corpus.",
+    "file": "assets/pdfs/assignment-4.pdf",
+    "maxMarks": 15
+  },
+  {
+    "id": "a5",
+    "title": "Assignment 5: Number Theory",
+    "unit": "Unit 3",
+    "dueDate": "2026-04-07",
+    "description": "Implement a linear sieve, modular exponentiation, and modular inverse via extended Euclid. Solve three CSES number theory problems.",
+    "file": "assets/pdfs/assignment-5.pdf",
+    "maxMarks": 15
+  },
+  {
+    "id": "a6",
+    "title": "Assignment 6: Max Flow",
+    "unit": "Unit 3",
+    "dueDate": "2026-04-21",
+    "description": "Implement Ford-Fulkerson with BFS augmenting paths (Edmonds-Karp) and model a bipartite matching problem as a flow network.",
+    "file": "assets/pdfs/assignment-6.pdf",
+    "maxMarks": 20
+  },
+  {
+    "id": "a7",
+    "title": "Assignment 7: Dynamic Programming",
+    "unit": "Unit 4",
+    "dueDate": "2026-05-05",
+    "description": "Solve edit distance, LIS, and the counting tilings problem using bitmask DP. Include state and transition explanations.",
+    "file": "assets/pdfs/assignment-7.pdf",
+    "maxMarks": 20
+  },
+  {
+    "id": "a8",
+    "title": "Assignment 8: Geometry & Backtracking",
+    "unit": "Unit 5",
+    "dueDate": "2026-05-19",
+    "description": "Implement convex hull construction and a backtracking solver for N-Queens. Submit complexity analysis for both.",
+    "file": "assets/pdfs/assignment-8.pdf",
+    "maxMarks": 15
+  }
+]

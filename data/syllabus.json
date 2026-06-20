@@ -1,0 +1,139 @@
+{
+  "course": {
+    "name": "Competitive Programming",
+    "code": "23CS4121",
+    "credits": 3
+  },
+  "units": [
+    {
+      "id": "unit1",
+      "number": 1,
+      "title": "Problem Solving Paradigms",
+      "summary": "Search-based and constructive strategies that form the base layer of every competitive programmer's toolkit.",
+      "groups": [
+        {
+          "heading": "Problem Solving Paradigms",
+          "topics": [
+            { "id": "complete-search", "name": "Complete Search", "complexity": "O(2^n) – O(n!)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "divide-conquer", "name": "Divide and Conquer", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "greedy", "name": "Greedy", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "dynamic-programming-intro", "name": "Dynamic Programming", "complexity": "O(n) – O(n^2)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "brute-force", "name": "Brute Force", "complexity": "O(n^2) – O(2^n)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Sorting",
+          "topics": [
+            { "id": "counting-sort", "name": "Counting Sort", "complexity": "O(n + k)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "radix-sort", "name": "Radix Sort", "complexity": "O(d·(n + k))", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Searching",
+          "topics": [
+            { "id": "ternary-search", "name": "Ternary Search", "complexity": "O(log₃ n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit2",
+      "number": 2,
+      "title": "Bit Manipulation & Strings",
+      "summary": "Low-level bit tricks paired with string structures used in fast pattern matching and prefix queries.",
+      "groups": [
+        {
+          "heading": "Bit Manipulation",
+          "topics": [
+            { "id": "bit-manipulation", "name": "Bit Manipulation", "complexity": "O(1) per op", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Strings",
+          "topics": [
+            { "id": "trie", "name": "Trie", "complexity": "O(L) per op", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "trie-operations", "name": "Trie Operations", "complexity": "O(L) per op", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "string-hashing", "name": "String Hashing", "complexity": "O(n) build, O(1) query", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "z-algorithm", "name": "Z-Algorithm", "complexity": "O(n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit3",
+      "number": 3,
+      "title": "Number Theory & Graphs",
+      "summary": "Arithmetic foundations and graph flow algorithms behind a large share of mid-to-hard contest problems.",
+      "groups": [
+        {
+          "heading": "Number Theory",
+          "topics": [
+            { "id": "prime-numbers", "name": "Prime Numbers", "complexity": "O(n log log n) sieve", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "factors", "name": "Factors", "complexity": "O(√n)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "modular-arithmetic", "name": "Modular Arithmetic", "complexity": "O(log n) exponentiation", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Graphs",
+          "topics": [
+            { "id": "ford-fulkerson", "name": "Ford-Fulkerson", "complexity": "O(E · max_flow)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "flow-networks", "name": "Flow Networks", "complexity": "O(VE^2)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "path-covers", "name": "Path Covers", "complexity": "O(VE)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "euler-paths", "name": "Euler Paths", "complexity": "O(V + E)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit4",
+      "number": 4,
+      "title": "Dynamic Programming & Greedy",
+      "summary": "Classic DP states and greedy proofs that recur across array, grid, and scheduling problems.",
+      "groups": [
+        {
+          "heading": "Dynamic Programming",
+          "topics": [
+            { "id": "coin-change", "name": "Coin Change", "complexity": "O(n·k)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "lis", "name": "Longest Increasing Subsequence", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "grid-paths", "name": "Grid Paths", "complexity": "O(n·m)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "edit-distance", "name": "Edit Distance", "complexity": "O(n·m)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "counting-tilings", "name": "Counting Tilings", "complexity": "O(n·2^m)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Greedy Algorithms",
+          "topics": [
+            { "id": "coin-problem", "name": "Coin Problem", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "task-scheduling", "name": "Task Scheduling", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "minimize-sums", "name": "Minimize Sums", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit5",
+      "number": 5,
+      "title": "Computational Geometry & Backtracking",
+      "summary": "Geometric primitives and exhaustive search techniques for constraint-heavy problems.",
+      "groups": [
+        {
+          "heading": "Computational Geometry",
+          "topics": [
+            { "id": "points", "name": "Points", "complexity": "O(1) per op", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "lines", "name": "Lines", "complexity": "O(1) per op", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "convex-polygon", "name": "Convex Polygon", "complexity": "O(n log n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "concave-polygon", "name": "Concave Polygon", "complexity": "O(n)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "distance-formula", "name": "Distance Formula", "complexity": "O(1)", "hasNotes": true, "hasPPT": false, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        },
+        {
+          "heading": "Backtracking",
+          "topics": [
+            { "id": "all-subsets", "name": "All Subsets", "complexity": "O(2^n)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true },
+            { "id": "all-permutations", "name": "All Permutations", "complexity": "O(n!)", "hasNotes": true, "hasPPT": true, "hasVideo": true, "hasPractice": true, "hasCode": true }
+          ]
+        }
+      ]
+    }
+  ]
+}

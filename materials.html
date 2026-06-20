@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Course Materials · Competitive Programming Portal</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+<div id="topbarRoot" class="topbar"></div>
+<div id="sidebarRoot" class="sidebar"></div>
+
+<div class="main-content">
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-eyebrow">ls ./materials</div>
+      <h1>Course Materials</h1>
+      <p class="lede">PDF notes, slide decks, code files, and reference books shared by the instructor. Filter by type or unit to find what you need.</p>
+    </div>
+
+    <div class="tabs reveal" id="materialFilterTabs">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="PDF Notes">PDF Notes</button>
+      <button class="tab-btn" data-filter="PPT">PPT</button>
+      <button class="tab-btn" data-filter="Code Files">Code Files</button>
+      <button class="tab-btn" data-filter="Sample Programs">Sample Programs</button>
+      <button class="tab-btn" data-filter="Algorithms">Algorithms</button>
+      <button class="tab-btn" data-filter="Reference Books">Reference Books</button>
+    </div>
+
+    <div class="grid grid-3 reveal" id="materialsGrid"></div>
+
+  </div>
+
+  <div id="footerRoot" class="site-footer"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/materials.js"></script>
+</body>
+</html>

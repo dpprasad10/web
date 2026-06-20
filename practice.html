@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Practice Problems · Competitive Programming Portal</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+<div id="topbarRoot" class="topbar"></div>
+<div id="sidebarRoot" class="sidebar"></div>
+
+<div class="main-content">
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-eyebrow">filter --difficulty</div>
+      <h1>Practice Problems</h1>
+      <p class="lede">24 problems sorted by difficulty. Each links to the problem on its source platform, plus an editorial, video, and discussion thread.</p>
+    </div>
+
+    <div class="tabs reveal" id="difficultyTabs">
+      <button class="tab-btn active" data-diff="all">All <span class="text-faint mono" id="countAll"></span></button>
+      <button class="tab-btn" data-diff="Easy">Easy <span class="text-faint mono" id="countEasy"></span></button>
+      <button class="tab-btn" data-diff="Medium">Medium <span class="text-faint mono" id="countMedium"></span></button>
+      <button class="tab-btn" data-diff="Hard">Hard <span class="text-faint mono" id="countHard"></span></button>
+    </div>
+
+    <div class="grid grid-3 reveal" id="practiceGrid"></div>
+
+  </div>
+
+  <div id="footerRoot" class="site-footer"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/practice.js"></script>
+</body>
+</html>

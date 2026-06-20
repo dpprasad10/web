@@ -1,0 +1,18 @@
+[
+  { "week": 1, "topics": ["Course Introduction", "Complete Search", "Brute Force"], "notes": "Unit 1 begins", "assignment": null, "quiz": false, "practice": ["Maximum Subarray Sum"] },
+  { "week": 2, "topics": ["Divide and Conquer", "Recurrence Relations"], "notes": "D&C derivations", "assignment": "Assignment 1: Search Paradigms", "quiz": false, "practice": ["Median of Two Sorted Arrays"] },
+  { "week": 3, "topics": ["Greedy Algorithms", "Exchange Arguments"], "notes": null, "assignment": null, "quiz": true, "practice": ["Task Scheduling with Deadlines"] },
+  { "week": 4, "topics": ["Dynamic Programming Intro", "Counting Sort", "Radix Sort"], "notes": "Non-comparison sorting", "assignment": "Assignment 2: Sorting & Searching", "quiz": false, "practice": ["Coin Change (Min Coins)"] },
+  { "week": 5, "topics": ["Ternary Search", "Unit 1 Review"], "notes": "Unit 1 wraps up", "assignment": null, "quiz": false, "practice": ["Ternary Search Minimum"] },
+  { "week": 6, "topics": ["Bit Manipulation", "Bitmask Tricks"], "notes": "Unit 2 begins", "assignment": null, "quiz": true, "practice": ["First Set Bit"] },
+  { "week": 7, "topics": ["Trie", "Trie Operations"], "notes": null, "assignment": "Assignment 3: Bitmasks & Tries", "quiz": false, "practice": ["Trie-based Prefix Count"] },
+  { "week": 8, "topics": ["String Hashing", "Z-Algorithm"], "notes": "Mid-semester week", "assignment": null, "quiz": false, "practice": ["String Matching with Z-Function"] },
+  { "week": 9, "topics": ["Mid Exam Week"], "notes": "Units 1-2 covered in Mid Exam", "assignment": null, "quiz": false, "practice": [] },
+  { "week": 10, "topics": ["Number Theory: Primes & Factors"], "notes": "Unit 3 begins", "assignment": "Assignment 4: String Algorithms", "quiz": false, "practice": ["Modular Exponentiation Queries"] },
+  { "week": 11, "topics": ["Modular Arithmetic", "Fast Exponentiation"], "notes": null, "assignment": null, "quiz": true, "practice": ["Modular Exponentiation Queries"] },
+  { "week": 12, "topics": ["Graphs: Ford-Fulkerson", "Flow Networks"], "notes": null, "assignment": "Assignment 5: Number Theory", "quiz": false, "practice": ["Maximum Flow on Bipartite Graph"] },
+  { "week": 13, "topics": ["Path Covers", "Euler Paths"], "notes": "Unit 3 wraps up", "assignment": "Assignment 6: Max Flow", "quiz": false, "practice": ["Euler Circuit Existence Check"] },
+  { "week": 14, "topics": ["Dynamic Programming: Coin Change, LIS"], "notes": "Unit 4 begins", "assignment": null, "quiz": true, "practice": ["Longest Increasing Subsequence"] },
+  { "week": 15, "topics": ["Edit Distance", "Counting Tilings", "Greedy Revisited"], "notes": null, "assignment": "Assignment 7: Dynamic Programming", "quiz": false, "practice": ["Edit Distance with Operation Costs"] },
+  { "week": 16, "topics": ["Computational Geometry", "Backtracking", "Semester Review"], "notes": "Unit 5 + final review", "assignment": "Assignment 8: Geometry & Backtracking", "quiz": false, "practice": ["Convex Hull Construction"] }
+]

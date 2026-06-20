@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weekly Schedule · Competitive Programming Portal</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+<div id="topbarRoot" class="topbar"></div>
+<div id="sidebarRoot" class="sidebar"></div>
+
+<div class="main-content">
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-eyebrow">cat ./planner --weeks=16</div>
+      <h1>Weekly Schedule</h1>
+      <p class="lede">The full 16-week semester planner — topics, notes, assignments, quizzes, and practice problems for each week.</p>
+    </div>
+
+    <div class="card reveal" style="padding:14px 18px; margin-bottom:24px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+      <span style="display:flex;align-items:center;gap:8px;font-size:0.82rem;"><span style="width:12px;height:12px;border-radius:50%;border:2px solid var(--panel-border);display:inline-block;"></span> Regular week</span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:0.82rem;"><span style="width:12px;height:12px;border-radius:50%;border:2px solid var(--info);display:inline-block;"></span> Has assignment</span>
+      <span style="display:flex;align-items:center;gap:8px;font-size:0.82rem;"><span style="width:12px;height:12px;border-radius:50%;border:2px solid var(--pending);display:inline-block;"></span> Has quiz</span>
+    </div>
+
+    <div class="timeline reveal" id="plannerTimeline"></div>
+
+  </div>
+
+  <div id="footerRoot" class="site-footer"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/planner.js"></script>
+</body>
+</html>

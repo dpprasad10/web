@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Faculty · Competitive Programming Portal</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+<div id="topbarRoot" class="topbar"></div>
+<div id="sidebarRoot" class="sidebar"></div>
+
+<div class="main-content">
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-eyebrow">whoami --instructor</div>
+      <h1>About Faculty</h1>
+    </div>
+
+    <div class="card faculty-hero reveal">
+      <div class="faculty-avatar">RK</div>
+      <div class="faculty-info">
+        <h2>Dr. Ravi Kumar</h2>
+        <div class="role">Assistant Professor · Department of Computer Science & Engineering</div>
+        <p style="max-width:560px;">Dr. Kumar teaches Competitive Programming and Advanced Algorithms, with a research focus on graph algorithms and computational geometry. He is a former ICPC regional finalist and an active contributor to the CSES problem set community.</p>
+        <div class="faculty-contact">
+          <a href="mailto:ravi.kumar@university.edu"><i class="fa-solid fa-envelope"></i> ravi.kumar@university.edu</a>
+          <a href="#"><i class="fa-solid fa-door-open"></i> Office: CSE Block, Room 312</a>
+          <a href="#"><i class="fa-regular fa-clock"></i> Office Hours: Tue/Thu 2–4 PM</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3 reveal" style="margin-top:28px;">
+      <div class="card" style="padding:22px;">
+        <h4 style="margin-bottom:10px;"><i class="fa-solid fa-graduation-cap" style="color:var(--ac);margin-right:8px;"></i>Education</h4>
+        <ul style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+          <li>Ph.D. in Computer Science — Graph Algorithms</li>
+          <li>M.Tech in Computer Science & Engineering</li>
+          <li>B.Tech in Computer Science & Engineering</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:22px;">
+        <h4 style="margin-bottom:10px;"><i class="fa-solid fa-trophy" style="color:var(--pending);margin-right:8px;"></i>Competitive Highlights</h4>
+        <ul style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+          <li>ICPC Regional Finalist (x2)</li>
+          <li>Codeforces Candidate Master</li>
+          <li>CSES Problem Set Contributor</li>
+        </ul>
+      </div>
+      <div class="card" style="padding:22px;">
+        <h4 style="margin-bottom:10px;"><i class="fa-solid fa-flask" style="color:var(--info);margin-right:8px;"></i>Research Interests</h4>
+        <ul style="display:flex;flex-direction:column;gap:8px;font-size:0.85rem;color:var(--text-dim);">
+          <li>Graph flow algorithms</li>
+          <li>Computational geometry</li>
+          <li>Algorithm engineering for contest judges</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="footerRoot" class="site-footer"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => window.CPPortal.initLayout('faculty.html'));
+</script>
+</body>
+</html>

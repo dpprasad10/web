@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ann1",
+    "type": "contest",
+    "title": "Weekly Contest Reminder",
+    "message": "Codeforces Round is scheduled for this Saturday 8:00 PM IST. Participation is optional but strongly recommended for Units 1-2 practice.",
+    "date": "2026-06-18",
+    "pinned": true
+  },
+  {
+    "id": "ann2",
+    "type": "assignment",
+    "title": "Assignment 5 Released",
+    "message": "Assignment 5 on Number Theory is now live on the Assignments page. Due April 7, 2026.",
+    "date": "2026-06-15",
+    "pinned": true
+  },
+  {
+    "id": "ann3",
+    "type": "exam",
+    "title": "Mid Exam Schedule Posted",
+    "message": "Mid Semester Exam for 23CS4121 is scheduled. Check the Previous Papers page for the syllabus split and sample papers.",
+    "date": "2026-06-10",
+    "pinned": false
+  },
+  {
+    "id": "ann4",
+    "type": "quiz",
+    "title": "Quiz Tomorrow: Unit 2",
+    "message": "A short quiz covering Bit Manipulation and Tries will be held at the start of tomorrow's lab session.",
+    "date": "2026-06-08",
+    "pinned": false
+  },
+  {
+    "id": "ann5",
+    "type": "general",
+    "title": "Lab Slot Swap Window Open",
+    "message": "Students who need to swap their programming lab slot can submit requests through the department portal until Friday.",
+    "date": "2026-06-02",
+    "pinned": false
+  }
+]

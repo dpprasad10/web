@@ -1,0 +1,11 @@
+[
+  { "year": "2025-26", "title": "Mid Semester Examination", "type": "Mid Exam", "file": "assets/pdfs/papers-2025-mid.pdf" },
+  { "year": "2025-26", "title": "End Semester Examination", "type": "Semester Exam", "file": "assets/pdfs/papers-2025-sem.pdf" },
+  { "year": "2025-26", "title": "Practice Paper Set A", "type": "Practice Papers", "file": "assets/pdfs/papers-2025-practice-a.pdf" },
+  { "year": "2024-25", "title": "Mid Semester Examination", "type": "Mid Exam", "file": "assets/pdfs/papers-2024-mid.pdf" },
+  { "year": "2024-25", "title": "End Semester Examination", "type": "Semester Exam", "file": "assets/pdfs/papers-2024-sem.pdf" },
+  { "year": "2024-25", "title": "Practice Paper Set A", "type": "Practice Papers", "file": "assets/pdfs/papers-2024-practice-a.pdf" },
+  { "year": "2024-25", "title": "Practice Paper Set B", "type": "Practice Papers", "file": "assets/pdfs/papers-2024-practice-b.pdf" },
+  { "year": "2023-24", "title": "Mid Semester Examination", "type": "Mid Exam", "file": "assets/pdfs/papers-2023-mid.pdf" },
+  { "year": "2023-24", "title": "End Semester Examination", "type": "Semester Exam", "file": "assets/pdfs/papers-2023-sem.pdf" }
+]

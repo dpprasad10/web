@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Syllabus · Competitive Programming Portal</title>
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+<div id="topbarRoot" class="topbar"></div>
+<div id="sidebarRoot" class="sidebar"></div>
+
+<div class="main-content">
+  <div class="page-container">
+
+    <div class="page-header reveal">
+      <div class="page-eyebrow">syllabus --units=5</div>
+      <h1>Course Syllabus</h1>
+      <p class="lede">Five units covering search paradigms through computational geometry. Expand a unit to see topics, complexity notes, and resources. Mark topics complete as you go — your progress is saved locally.</p>
+    </div>
+
+    <div class="card reveal" style="padding:18px 22px; margin-bottom:24px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+      <div class="progress-circle-wrap" style="width:64px;height:64px;">
+        <svg viewBox="0 0 80 80" width="64" height="64">
+          <circle class="progress-circle-bg" cx="40" cy="40" r="34" />
+          <circle class="progress-circle-fill" id="overallCircle" cx="40" cy="40" r="34" stroke-dasharray="213.6" stroke-dashoffset="213.6" />
+        </svg>
+        <div class="progress-circle-label"><span class="pct" id="overallPct" style="font-size:0.95rem;">0%</span></div>
+      </div>
+      <div>
+        <div style="font-weight:600;">Overall Syllabus Progress</div>
+        <div class="text-dim" style="font-size:0.85rem;" id="overallProgressText">0 of 0 topics completed</div>
+      </div>
+    </div>
+
+    <div id="syllabusAccordion" class="reveal"></div>
+
+  </div>
+
+  <div id="footerRoot" class="site-footer"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/syllabus.js"></script>
+</body>
+</html>
