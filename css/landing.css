@@ -1,0 +1,270 @@
+/* ==========================================================================
+   LANDING PAGE — Course Tile Hub
+   Shares the design language of the Competitive Programming portal
+   (judge/terminal aesthetic, same tokens) so the hub and the course
+   portals it links to feel like one coherent product.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #0B0F14;
+  --bg-raised: #121821;
+  --bg-overlay: #161D27;
+  --panel: #121821;
+  --panel-border: #1E2733;
+  --panel-border-soft: #182231;
+  --text: #E6EDF3;
+  --text-dim: #8B98A5;
+  --text-faint: #5B6776;
+
+  --ac: #3FB950;
+  --ac-dim: #2E8B3F;
+  --ac-bg: rgba(63, 185, 80, 0.12);
+  --pending: #D29922;
+  --pending-bg: rgba(210, 153, 34, 0.12);
+  --wa: #F85149;
+  --wa-bg: rgba(248, 81, 73, 0.12);
+  --info: #58A6FF;
+  --info-bg: rgba(88, 166, 255, 0.12);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --topbar-h: 60px;
+  --max-w: 1180px;
+
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.35);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.45);
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg: #F6F8FA;
+  --bg-raised: #FFFFFF;
+  --bg-overlay: #FFFFFF;
+  --panel: #FFFFFF;
+  --panel-border: #D8DEE4;
+  --panel-border-soft: #E5E9ED;
+  --text: #1B2330;
+  --text-dim: #57606A;
+  --text-faint: #8B98A5;
+
+  --ac: #1A7F37;
+  --ac-dim: #166A2E;
+  --ac-bg: rgba(26, 127, 55, 0.10);
+  --pending: #9A6700;
+  --pending-bg: rgba(154, 103, 0, 0.10);
+  --wa: #CF222E;
+  --wa-bg: rgba(207, 34, 46, 0.10);
+  --info: #0969DA;
+  --info-bg: rgba(9, 105, 218, 0.10);
+
+  --shadow-md: 0 4px 16px rgba(27,35,48,0.08);
+  --shadow-lg: 0 12px 32px rgba(27,35,48,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition), color var(--transition);
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; border-radius: 4px; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text);
+}
+.mono { font-family: var(--font-mono); }
+
+/* ---- Topbar ---- */
+.topbar {
+  position: sticky;
+  top: 0;
+  height: var(--topbar-h);
+  background: var(--bg-raised);
+  border-bottom: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+}
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-dots { display: flex; gap: 6px; }
+.topbar-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.topbar-dots span:nth-child(1) { background: var(--wa); }
+.topbar-dots span:nth-child(2) { background: var(--pending); }
+.topbar-dots span:nth-child(3) { background: var(--ac); }
+.brand {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+}
+.brand .prompt-symbol { color: var(--ac); font-family: var(--font-mono); }
+.icon-btn {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  transition: background var(--transition), color var(--transition);
+}
+.icon-btn:hover { background: var(--bg-overlay); color: var(--text); }
+
+/* ---- Layout ---- */
+.landing-main { min-height: calc(100vh - var(--topbar-h)); display: flex; flex-direction: column; }
+.landing-container { max-width: var(--max-w); margin: 0 auto; padding: 48px 28px 24px; flex: 1; width: 100%; }
+
+/* ---- Hero ---- */
+.landing-hero { margin-bottom: 40px; max-width: 640px; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 0.78rem;
+  color: var(--ac); background: var(--ac-bg);
+  padding: 5px 12px; border-radius: 20px; margin-bottom: 18px;
+}
+.hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ac); animation: pulse-dot 2s infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.landing-hero h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; margin-bottom: 12px; }
+.hero-desc { color: var(--text-dim); font-size: 1.02rem; }
+
+/* ---- Badges (subset reused from main portal) ---- */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+  padding: 3px 8px; border-radius: 5px; letter-spacing: 0.02em;
+}
+.badge-ac { background: var(--ac-bg); color: var(--ac); }
+.badge-pending { background: var(--pending-bg); color: var(--pending); }
+
+/* ---- Tiles grid ---- */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.course-tile {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  min-height: 220px;
+}
+
+.course-tile.live {
+  cursor: pointer;
+}
+.course-tile.live:hover {
+  border-color: var(--ac);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.course-tile.live:hover .tile-footer i { transform: translateX(3px); }
+.course-tile.live::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: linear-gradient(135deg, var(--ac-dim), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.course-tile.upcoming {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.course-tile.upcoming .tile-icon { background: var(--bg-overlay); color: var(--text-faint); }
+
+.tile-top { display: flex; align-items: flex-start; justify-content: space-between; }
+.tile-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ac-bg);
+  color: var(--ac);
+  font-size: 1.1rem;
+}
+.course-tile h3 { font-size: 1.1rem; }
+.tile-code { font-size: 0.74rem; color: var(--text-faint); }
+.tile-desc { font-size: 0.85rem; color: var(--text-dim); flex: 1; }
+.tile-meta-row { display: flex; gap: 16px; font-size: 0.78rem; color: var(--text-faint); }
+.tile-meta-row span { display: flex; align-items: center; gap: 6px; }
+.tile-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 6px; padding-top: 14px;
+  border-top: 1px solid var(--panel-border-soft);
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--text-dim);
+}
+.course-tile.live .tile-footer { color: var(--ac); }
+.tile-footer i { transition: transform var(--transition); font-size: 0.78rem; }
+
+/* ---- Add-tile (faculty extension hint) ---- */
+.add-tile {
+  border-style: dashed;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  min-height: 220px;
+}
+.add-tile-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  text-align: center;
+}
+.add-tile-inner i { font-size: 1.3rem; }
+
+/* ---- Footer ---- */
+.landing-footer {
+  border-top: 1px solid var(--panel-border);
+  padding: 22px 28px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+/* ---- Scroll reveal ---- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms ease, transform 500ms ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .landing-container { padding: 32px 18px 16px; }
+  .tiles-grid { grid-template-columns: 1fr; }
+  .topbar { padding: 0 16px; }
+}

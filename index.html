@@ -3,115 +3,120 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Competitive Programming Portal · 23CS4121</title>
-<meta name="description" content="Course portal for Competitive Programming (23CS4121) — syllabus, materials, practice problems, lab experiments, and assignments." />
-<link rel="stylesheet" href="css/styles.css" />
+<title>Course Portal · Department of CSE</title>
+<meta name="description" content="Course portal hub — select a course to view its syllabus, materials, and practice resources." />
+<link rel="stylesheet" href="css/landing.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
-<div id="topbarRoot" class="topbar"></div>
-<div id="sidebarRoot" class="sidebar"></div>
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-dots"><span></span><span></span><span></span></div>
+    <a href="index.html" class="brand">
+      <span class="prompt-symbol">&gt;_</span>
+      <span>Course Portal</span>
+    </a>
+  </div>
+  <div class="topbar-right">
+    <button class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme">
+      <i class="fa-solid fa-sun"></i>
+    </button>
+  </div>
+</div>
 
-<div class="main-content">
-  <div class="page-container">
+<main class="landing-main">
+  <div class="landing-container">
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero reveal">
-      <div class="hero-content">
-        <div class="hero-tag"><span class="dot"></span> Spring 2026 · 16-week course</div>
-        <h1>Competitive Programming</h1>
-        <p class="hero-desc">A systems-level approach to algorithmic problem solving — search paradigms, data structures, graph theory, and dynamic programming, taught the way contests actually test them.</p>
-        <div class="hero-actions">
-          <a href="syllabus.html" class="btn btn-primary"><i class="fa-solid fa-list-check"></i> View Syllabus</a>
-          <a href="practice.html" class="btn btn-secondary"><i class="fa-solid fa-code"></i> Start Practicing</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat"><div class="num">5</div><div class="label">Units</div></div>
-          <div class="hero-stat"><div class="num">14</div><div class="label">Lab Experiments</div></div>
-          <div class="hero-stat"><div class="num">24</div><div class="label">Practice Problems</div></div>
-          <div class="hero-stat"><div class="num">16</div><div class="label">Weeks</div></div>
-          <div class="hero-stat"><div class="num">3</div><div class="label">Credits</div></div>
-        </div>
-      </div>
+    <section class="landing-hero reveal">
+      <div class="hero-tag"><span class="dot"></span> Spring 2026 semester</div>
+      <h1>Your Courses</h1>
+      <p class="hero-desc">Select a course to open its portal — syllabus, materials, practice problems, and assignments, all in one place.</p>
     </section>
 
-    <!-- ===================== COURSE OVERVIEW ===================== -->
-    <section class="section reveal">
-      <div class="grid grid-3">
-        <div class="card" style="grid-column: span 2; padding: 24px;">
-          <h3 style="margin-bottom:12px;"><i class="fa-solid fa-circle-info" style="color:var(--info);margin-right:8px;"></i>Course Overview</h3>
-          <p>This course builds the algorithmic toolkit needed for technical interviews and competitive programming contests alike. Students move from brute-force and search paradigms through bit manipulation, string algorithms, number theory, graph flow, dynamic programming, and computational geometry — each unit anchored in problems pulled from real judge platforms.</p>
-          <div style="display:flex;gap:24px;margin-top:18px;flex-wrap:wrap;">
-            <div><div class="text-faint mono" style="font-size:0.72rem;">COURSE CODE</div><div style="font-weight:600;">23CS4121</div></div>
-            <div><div class="text-faint mono" style="font-size:0.72rem;">CREDITS</div><div style="font-weight:600;">3</div></div>
-            <div><div class="text-faint mono" style="font-size:0.72rem;">PREREQUISITES</div><div style="font-weight:600;">Data Structures, C++ / Java Basics</div></div>
+    <section class="tiles-section reveal">
+      <div class="tiles-grid" id="tilesGrid">
+        <!-- Tile 1: Competitive Programming — live, links to existing portal -->
+        <a href="competitive-programming/index.html" class="course-tile live" data-course="cp">
+          <div class="tile-top">
+            <div class="tile-icon"><i class="fa-solid fa-code"></i></div>
+            <span class="badge badge-ac">Active</span>
+          </div>
+          <h3>Competitive Programming</h3>
+          <div class="tile-code mono">23CS4121</div>
+          <p class="tile-desc">Search paradigms, strings, number theory, graphs, DP, and computational geometry — taught the way contests test them.</p>
+          <div class="tile-meta-row">
+            <span><i class="fa-solid fa-layer-group"></i>3 Credits</span>
+            <span><i class="fa-solid fa-calendar-days"></i>16 Weeks</span>
+          </div>
+          <div class="tile-footer">
+            <span>Open course portal</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <!-- Tile 2: placeholder course -->
+        <div class="course-tile upcoming" data-course="dsa">
+          <div class="tile-top">
+            <div class="tile-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <span class="badge badge-pending">Coming Soon</span>
+          </div>
+          <h3>Data Structures & Algorithms</h3>
+          <div class="tile-code mono">23CS3101</div>
+          <p class="tile-desc">Portal under construction. Course materials will be published before the semester begins.</p>
+          <div class="tile-meta-row">
+            <span><i class="fa-solid fa-layer-group"></i>4 Credits</span>
+            <span><i class="fa-solid fa-calendar-days"></i>16 Weeks</span>
+          </div>
+          <div class="tile-footer">
+            <span>Not yet available</span>
+            <i class="fa-solid fa-lock"></i>
           </div>
         </div>
-        <div class="card quote-block" id="quoteBlock">
-          <!-- filled by JS: coding quote of the day -->
-        </div>
-      </div>
-    </section>
 
-    <!-- ===================== OBJECTIVES & OUTCOMES ===================== -->
-    <section class="section reveal">
-      <div class="grid grid-2">
-        <div class="card" style="padding:24px;">
-          <h3 style="margin-bottom:14px;"><i class="fa-solid fa-bullseye" style="color:var(--ac);margin-right:8px;"></i>Course Objectives</h3>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--ac);font-size:0.7rem;margin-top:5px;"></i>Build fluency in core problem-solving paradigms: search, divide and conquer, greedy, and dynamic programming.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--ac);font-size:0.7rem;margin-top:5px;"></i>Develop strong command of string algorithms, trie structures, and hashing techniques.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--ac);font-size:0.7rem;margin-top:5px;"></i>Apply number theory and graph flow algorithms to model real constraint problems.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--ac);font-size:0.7rem;margin-top:5px;"></i>Practice contest-style problem solving under time and complexity constraints.</li>
-          </ul>
+        <!-- Tile 3: placeholder course -->
+        <div class="course-tile upcoming" data-course="os">
+          <div class="tile-top">
+            <div class="tile-icon"><i class="fa-solid fa-microchip"></i></div>
+            <span class="badge badge-pending">Coming Soon</span>
+          </div>
+          <h3>Operating Systems</h3>
+          <div class="tile-code mono">23CS3204</div>
+          <p class="tile-desc">Portal under construction. Course materials will be published before the semester begins.</p>
+          <div class="tile-meta-row">
+            <span><i class="fa-solid fa-layer-group"></i>4 Credits</span>
+            <span><i class="fa-solid fa-calendar-days"></i>16 Weeks</span>
+          </div>
+          <div class="tile-footer">
+            <span>Not yet available</span>
+            <i class="fa-solid fa-lock"></i>
+          </div>
         </div>
-        <div class="card" style="padding:24px;">
-          <h3 style="margin-bottom:14px;"><i class="fa-solid fa-trophy" style="color:var(--pending);margin-right:8px;"></i>Course Outcomes</h3>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--pending);font-size:0.7rem;margin-top:5px;"></i>Select and justify the right algorithmic paradigm for a given constraint profile.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--pending);font-size:0.7rem;margin-top:5px;"></i>Implement and debug graph, DP, and geometry algorithms within contest time limits.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--pending);font-size:0.7rem;margin-top:5px;"></i>Analyze time and space complexity to choose between competing solutions.</li>
-            <li style="display:flex;gap:10px;font-size:0.9rem;color:var(--text-dim);"><i class="fa-solid fa-chevron-right" style="color:var(--pending);font-size:0.7rem;margin-top:5px;"></i>Independently rate, solve, and review problems on major judge platforms.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===================== QUICK NAV ===================== -->
-    <section class="section reveal">
-      <div class="section-head"><h2>Jump In</h2></div>
-      <div class="grid grid-4" id="quickNavGrid">
-        <!-- filled by JS -->
-      </div>
-    </section>
-
-    <!-- ===================== ANNOUNCEMENTS + UPCOMING ===================== -->
-    <section class="section reveal">
-      <div class="grid grid-2">
-        <div class="card" style="padding:8px 0;">
-          <h3 style="padding:16px 20px 4px;"><i class="fa-solid fa-bullhorn" style="color:var(--wa);margin-right:8px;"></i>Latest Announcements</h3>
-          <div id="announcementsList"></div>
+        <!-- Tile 4: placeholder course -->
+        <div class="course-tile upcoming" data-course="dbms">
+          <div class="tile-top">
+            <div class="tile-icon"><i class="fa-solid fa-database"></i></div>
+            <span class="badge badge-pending">Coming Soon</span>
+          </div>
+          <h3>Database Management Systems</h3>
+          <div class="tile-code mono">23CS3305</div>
+          <p class="tile-desc">Portal under construction. Course materials will be published before the semester begins.</p>
+          <div class="tile-meta-row">
+            <span><i class="fa-solid fa-layer-group"></i>3 Credits</span>
+            <span><i class="fa-solid fa-calendar-days"></i>16 Weeks</span>
+          </div>
+          <div class="tile-footer">
+            <span>Not yet available</span>
+            <i class="fa-solid fa-lock"></i>
+          </div>
         </div>
-        <div class="card" style="padding:8px 0;">
-          <h3 style="padding:16px 20px 4px;"><i class="fa-solid fa-clock" style="color:var(--info);margin-right:8px;"></i>Upcoming Submissions</h3>
-          <div id="upcomingList"></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===================== INSTRUCTOR ===================== -->
-    <section class="section reveal">
-      <div class="section-head"><h2>Instructor</h2></div>
-      <div class="card faculty-hero">
-        <div class="faculty-avatar">RK</div>
-        <div class="faculty-info">
-          <h2>Dr. Ravi Kumar</h2>
-          <div class="role">Assistant Professor · Department of CSE</div>
-          <p style="max-width:520px;">Teaches competitive programming and algorithm design, with a research focus on graph algorithms and computational geometry. Former ICPC regional finalist and CSES contributor.</p>
-          <div class="faculty-contact">
-            <a href="mailto:ravi.kumar@university.edu"><i class="fa-solid fa-envelope"></i> ravi.kumar@university.edu</a>
-            <a href="faculty.html"><i class="fa-solid fa-arrow-right"></i> Full profile</a>
+        <!-- Add-a-tile placeholder for faculty to extend -->
+        <div class="course-tile add-tile" id="addTileBtn">
+          <div class="add-tile-inner">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add another course</span>
           </div>
         </div>
       </div>
@@ -119,10 +124,11 @@
 
   </div>
 
-  <div id="footerRoot" class="site-footer"></div>
-</div>
+  <footer class="landing-footer">
+    <span>Department of CSE · Course Portal · © <span id="yearStamp"></span></span>
+  </footer>
+</main>
 
-<script src="js/app.js"></script>
-<script src="js/index.js"></script>
+<script src="js/landing.js"></script>
 </body>
 </html>
