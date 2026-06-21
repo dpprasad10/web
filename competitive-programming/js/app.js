@@ -20,6 +20,7 @@
   };
 
   const NAV_ITEMS = [
+    { href: '../index.html', label: 'Dashboard', icon: 'fa-house' },
     { href: 'index.html', label: 'Home', icon: 'fa-house' },
     { href: 'syllabus.html', label: 'Syllabus', icon: 'fa-list-check' },
     { href: 'materials.html', label: 'Course Materials', icon: 'fa-folder-open' },
