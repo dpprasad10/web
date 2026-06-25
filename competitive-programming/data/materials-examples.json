@@ -1,0 +1,562 @@
+{
+  "complete-search": {
+    "description": "Enumerate every possible solution systematically. Used when n is small enough to afford exponential or factorial complexity.",
+    "example": {
+      "title": "Generate all subsets of {1, 2, 3}",
+      "input": "arr = [1, 2, 3]",
+      "output": "{}, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}",
+      "explanation": "Use a bitmask from 0 to 2^n - 1. Each bit position determines whether the corresponding element is included. For n=3 we have 2³=8 subsets.",
+      "code": "for (int mask = 0; mask < (1 << n); mask++) {\n  vector<int> subset;\n  for (int i = 0; i < n; i++)\n    if (mask & (1 << i)) subset.push_back(arr[i]);\n  // process subset\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-complete-search.pdf",
+      "ppt":   "assets/ppt/unit1-complete-search.pptx",
+      "video": "https://www.youtube.com/watch?v=REOH22Xom6k",
+      "code":  "assets/code/complete-search.cpp"
+    }
+  },
+  "divide-conquer": {
+    "description": "Recursively split a problem into independent sub-problems, solve each, and combine results. Canonical example: merge sort.",
+    "example": {
+      "title": "Merge Sort — sort [38, 27, 43, 3, 9, 82, 10]",
+      "input": "arr = [38, 27, 43, 3, 9, 82, 10]",
+      "output": "[3, 9, 10, 27, 38, 43, 82]",
+      "explanation": "Split into halves recursively until single elements. Merge sorted halves pairwise. Recurrence: T(n) = 2T(n/2) + O(n) → O(n log n).",
+      "code": "void mergeSort(vector<int>& a, int l, int r) {\n  if (l >= r) return;\n  int m = (l + r) / 2;\n  mergeSort(a, l, m);\n  mergeSort(a, m+1, r);\n  merge(a, l, m, r);\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-divide-conquer.pdf",
+      "ppt":   "assets/ppt/unit1-divide-conquer.pptx",
+      "video": "https://www.youtube.com/watch?v=TzeBrDU-JaY",
+      "code":  "assets/code/merge-sort.cpp"
+    }
+  },
+  "greedy": {
+    "description": "Make the locally optimal choice at each step. Correct only when the greedy choice property and optimal substructure hold.",
+    "example": {
+      "title": "Activity Selection — pick maximum non-overlapping activities",
+      "input": "Activities: (1,4),(3,5),(0,6),(5,7),(8,11),(12,16)",
+      "output": "Selected: (1,4), (5,7), (8,11), (12,16) — 4 activities",
+      "explanation": "Sort by end time. Greedily select each activity whose start ≥ last selected end time. Exchange argument proves this is optimal.",
+      "code": "sort(acts.begin(), acts.end(), byEndTime);\nint count = 1, lastEnd = acts[0].end;\nfor (int i = 1; i < n; i++)\n  if (acts[i].start >= lastEnd) {\n    count++;\n    lastEnd = acts[i].end;\n  }"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-greedy.pdf",
+      "ppt":   "assets/ppt/unit1-greedy.pptx",
+      "video": "https://www.youtube.com/watch?v=HzeK7g8cD0Y",
+      "code":  "assets/code/greedy-activity.cpp"
+    }
+  },
+  "dynamic-programming-intro": {
+    "description": "Cache overlapping sub-problems. Two approaches: top-down memoization and bottom-up tabulation.",
+    "example": {
+      "title": "Fibonacci with memoization vs naive recursion",
+      "input": "n = 6",
+      "output": "fib(6) = 8",
+      "explanation": "Naive recursion recomputes fib(3) multiple times. Memoization stores each result once. dp[0]=0, dp[1]=1, dp[i]=dp[i-1]+dp[i-2].",
+      "code": "int dp[100] = {-1};\nint fib(int n) {\n  if (n <= 1) return n;\n  if (dp[n] != -1) return dp[n];\n  return dp[n] = fib(n-1) + fib(n-2);\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-dp-intro.pdf",
+      "ppt":   "assets/ppt/unit1-dp-intro.pptx",
+      "video": "https://www.youtube.com/watch?v=vYquumk4nWw",
+      "code":  "assets/code/dp-fibonacci.cpp"
+    }
+  },
+  "brute-force": {
+    "description": "Try the most direct solution without optimisation. Always correct; feasible only for small n.",
+    "example": {
+      "title": "Maximum Subarray Sum — O(n²) brute force",
+      "input": "arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]",
+      "output": "6  (subarray [4, -1, 2, 1])",
+      "explanation": "Fix each start index i. Extend end index j rightward, accumulating running sum. Track the global maximum. O(n²) with running sum, O(n³) recomputing from scratch.",
+      "code": "int maxSum = INT_MIN;\nfor (int i = 0; i < n; i++) {\n  int sum = 0;\n  for (int j = i; j < n; j++) {\n    sum += arr[j];\n    maxSum = max(maxSum, sum);\n  }\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-brute-force.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=86CQq3pKSUw",
+      "code":  "assets/code/brute-force-maxsubarray.cpp"
+    }
+  },
+  "counting-sort": {
+    "description": "Non-comparison sort for bounded integers. Count occurrences, prefix-sum, place elements. O(n+k) time.",
+    "example": {
+      "title": "Sort [4, 2, 2, 8, 3, 3, 1] with values in range [1,8]",
+      "input": "arr = [4, 2, 2, 8, 3, 3, 1], k = 8",
+      "output": "[1, 2, 2, 3, 3, 4, 8]",
+      "explanation": "Build count[1..8]. Apply prefix sums so count[v] = number of elements ≤ v. Iterate input backward for stability, placing each element at its prefix-sum position.",
+      "code": "vector<int> count(k+1, 0), out(n);\nfor (int x : arr) count[x]++;\nfor (int v=1;v<=k;v++) count[v]+=count[v-1];\nfor (int i=n-1;i>=0;i--)\n  out[--count[arr[i]]] = arr[i];"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-counting-sort.pdf",
+      "ppt":   "assets/ppt/unit1-counting-sort.pptx",
+      "video": "https://www.youtube.com/watch?v=7zuGmKfUt7s",
+      "code":  "assets/code/counting-sort.cpp"
+    }
+  },
+  "radix-sort": {
+    "description": "Sort integers digit by digit using a stable sort (counting sort) at each digit position. LSD variant processes least significant digit first.",
+    "example": {
+      "title": "LSD Radix Sort on [170, 45, 75, 90, 802, 24, 2, 66]",
+      "input": "arr = [170, 45, 75, 90, 802, 24, 2, 66]",
+      "output": "[2, 24, 45, 66, 75, 90, 170, 802]",
+      "explanation": "Pass 1 (ones): [170,90,802,2,24,45,75,66]. Pass 2 (tens): [802,2,24,45,66,170,75,90]. Pass 3 (hundreds): [2,24,45,66,75,90,170,802]. Each pass must be stable.",
+      "code": "void radixSort(vector<int>& a) {\n  int mx = *max_element(a.begin(),a.end());\n  for (int exp=1; mx/exp>0; exp*=10)\n    countSortByDigit(a, exp);\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-radix-sort.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=nu4gDuFabIM",
+      "code":  "assets/code/radix-sort.cpp"
+    }
+  },
+  "ternary-search": {
+    "description": "Find the extremum of a unimodal function by discarding one-third of the interval each iteration.",
+    "example": {
+      "title": "Minimise f(x) = (x-3)² + 2 on [0, 10]",
+      "input": "f(x) = (x-3)^2 + 2, lo=0, hi=10",
+      "output": "Minimum at x ≈ 3.0, f(3) = 2",
+      "explanation": "Each iteration evaluates f(m1) and f(m2) at two interior points. Discard the third where f is larger. Repeat until hi-lo < epsilon. O(log n) iterations.",
+      "code": "double ternarySearch(double lo, double hi) {\n  while (hi - lo > 1e-9) {\n    double m1 = lo + (hi-lo)/3;\n    double m2 = hi - (hi-lo)/3;\n    if (f(m1) < f(m2)) hi = m2;\n    else               lo = m1;\n  }\n  return (lo+hi)/2;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit1-ternary-search.pdf",
+      "ppt":   "assets/ppt/unit1-ternary-search.pptx",
+      "video": "https://www.youtube.com/watch?v=JapiTmrpHjA",
+      "code":  "assets/code/ternary-search.cpp"
+    }
+  },
+  "bit-manipulation": {
+    "description": "Direct operations on binary representations: AND, OR, XOR, shifts. Used for subset enumeration, fast flags, and optimised DP.",
+    "example": {
+      "title": "Common bitmask tricks",
+      "input": "n = 18  (binary: 10010)",
+      "output": "First set bit = 2 | Last set bit = 4 | Popcount = 2",
+      "explanation": "n & (n-1) clears the lowest set bit. n & (-n) isolates the lowest set bit. __builtin_popcount(n) counts set bits. These O(1) ops underpin fast subset enumeration.",
+      "code": "int n = 18;          // 10010 in binary\nint lsb = n & (-n);  // 00010 → isolate lowest set bit\nn & (n-1);           // 10000 → clear lowest set bit\n__builtin_popcount(n); // 2   → count of set bits\nfor(int s=mask;s;s=(s-1)&mask) { /* enumerate submasks */ }"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit2-bit-manipulation.pdf",
+      "ppt":   "assets/ppt/unit2-bit-manipulation.pptx",
+      "video": "https://www.youtube.com/watch?v=NLKQEOgBAnw",
+      "code":  "assets/code/bit-tricks.cpp"
+    }
+  },
+  "trie": {
+    "description": "A prefix tree where each node represents one character. Supports O(L) insert, search, and prefix queries.",
+    "example": {
+      "title": "Insert 'cat', 'car', 'card' into a trie",
+      "input": "words = ['cat', 'car', 'card']",
+      "output": "Trie stores shared prefix 'ca' once; branches at 't' and 'r'; 'r' has child 'd'",
+      "explanation": "Root → c → a → t (end of 'cat'). From 'a' also → r (end of 'car') → d (end of 'card'). Prefix search for 'car' traverses 3 nodes. Total nodes = 6.",
+      "code": "struct TrieNode {\n  TrieNode* children[26] = {};\n  bool isEnd = false;\n};\nvoid insert(TrieNode* root, string word) {\n  for (char c : word) {\n    int i = c - 'a';\n    if (!root->children[i])\n      root->children[i] = new TrieNode();\n    root = root->children[i];\n  }\n  root->isEnd = true;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit2-trie.pdf",
+      "ppt":   "assets/ppt/unit2-trie.pptx",
+      "video": "https://www.youtube.com/watch?v=AXjmTQ8LEoI",
+      "code":  "assets/code/trie.cpp"
+    }
+  },
+  "trie-operations": {
+    "description": "Insert, search, delete, and prefix-count operations on a trie. Each costs O(L) where L is the string length.",
+    "example": {
+      "title": "Count words with prefix 'ca' in trie",
+      "input": "words = ['cat', 'car', 'card', 'dog'], prefix = 'ca'",
+      "output": "3 words have prefix 'ca'",
+      "explanation": "Augment each node with a count field incremented on insert. Traverse the prefix path 'c'→'a'. The count at node 'a' gives the number of strings sharing this prefix.",
+      "code": "struct TrieNode {\n  TrieNode* ch[26] = {};\n  int prefixCount = 0;\n  bool isEnd = false;\n};\nint countPrefix(TrieNode* root, string prefix) {\n  for (char c : prefix) {\n    int i = c-'a';\n    if (!root->ch[i]) return 0;\n    root = root->ch[i];\n  }\n  return root->prefixCount;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit2-trie-ops.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=AXjmTQ8LEoI",
+      "code":  "assets/code/trie-operations.cpp"
+    }
+  },
+  "string-hashing": {
+    "description": "Map a string to an integer using a polynomial rolling hash. Enables O(1) substring equality checks after O(n) preprocessing.",
+    "example": {
+      "title": "Polynomial rolling hash of 'hello'",
+      "input": "s = 'hello', base=31, mod=1e9+7",
+      "output": "hash = (h·31⁴ + e·31³ + l·31² + l·31 + o) mod (1e9+7)",
+      "explanation": "Precompute prefix hashes and powers. Hash of s[l..r] = (hash[r+1] - hash[l]*pow[r-l+1]) mod M. Comparison is O(1). Use double hashing to reduce collision probability.",
+      "code": "long long base=31, mod=1e9+7;\nvector<long long> h(n+1,0), pw(n+1,1);\nfor(int i=0;i<n;i++) {\n  h[i+1]=(h[i]*base+(s[i]-'a'+1))%mod;\n  pw[i+1]=pw[i]*base%mod;\n}\n// hash(l,r) = (h[r+1]-h[l]*pw[r-l+1]%mod+mod*mod)%mod;"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit2-string-hashing.pdf",
+      "ppt":   "assets/ppt/unit2-string-hashing.pptx",
+      "video": "https://www.youtube.com/watch?v=4Nd3a0x2LME",
+      "code":  "assets/code/string-hashing.cpp"
+    }
+  },
+  "z-algorithm": {
+    "description": "Computes Z-array where Z[i] = length of the longest substring starting at i that matches a prefix of the string. Enables O(n) pattern matching.",
+    "example": {
+      "title": "Find pattern 'ab' in text 'ababcabab'",
+      "input": "pattern='ab', text='ababcabab'",
+      "output": "Pattern found at indices: 0, 2, 5, 7",
+      "explanation": "Concatenate s = pattern + '$' + text. Compute Z-array. Any position i where Z[i] == len(pattern) is a match. '$' separator prevents Z-values crossing the boundary.",
+      "code": "string s = pattern + '$' + text;\nvector<int> z(s.size(),0);\nfor(int i=1,l=0,r=0;i<s.size();i++) {\n  if(i<r) z[i]=min(r-i,z[i-l]);\n  while(i+z[i]<s.size() && s[z[i]]==s[i+z[i]]) z[i]++;\n  if(i+z[i]>r) l=i, r=i+z[i];\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit2-z-algorithm.pdf",
+      "ppt":   "assets/ppt/unit2-z-algorithm.pptx",
+      "video": "https://www.youtube.com/watch?v=CpZh4eF8QBw",
+      "code":  "assets/code/z-algorithm.cpp"
+    }
+  },
+  "prime-numbers": {
+    "description": "Sieve of Eratosthenes finds all primes up to n in O(n log log n). Segmented sieve handles large ranges.",
+    "example": {
+      "title": "Sieve of Eratosthenes up to n=30",
+      "input": "n = 30",
+      "output": "Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29",
+      "explanation": "Start with all numbers marked prime. For each prime p, mark p², p²+p, p²+2p, ... as composite. Only iterate p up to sqrt(n). Mark[i] stays true only for primes.",
+      "code": "vector<bool> sieve(n+1, true);\nsieve[0]=sieve[1]=false;\nfor(int p=2;(long long)p*p<=n;p++)\n  if(sieve[p])\n    for(int j=p*p;j<=n;j+=p)\n      sieve[j]=false;\n// sieve[i] == true means i is prime"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-primes.pdf",
+      "ppt":   "assets/ppt/unit3-primes.pptx",
+      "video": "https://www.youtube.com/watch?v=V08g_lkKj6Q",
+      "code":  "assets/code/sieve.cpp"
+    }
+  },
+  "factors": {
+    "description": "Find all factors of n in O(√n) by iterating up to √n and pairing each divisor with n/divisor.",
+    "example": {
+      "title": "All factors of n = 36",
+      "input": "n = 36",
+      "output": "Factors: 1, 2, 3, 4, 6, 9, 12, 18, 36",
+      "explanation": "Iterate i from 1 to √36=6. If i divides 36, add both i and 36/i. At i=6, 36/6=6 so add only once. Result sorted: {1,2,3,4,6,9,12,18,36}.",
+      "code": "vector<int> factors;\nfor(int i=1;(long long)i*i<=n;i++) {\n  if(n%i==0) {\n    factors.push_back(i);\n    if(i != n/i) factors.push_back(n/i);\n  }\n}\nsort(factors.begin(),factors.end());"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-factors.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=zIFehsBHB8o",
+      "code":  "assets/code/factors.cpp"
+    }
+  },
+  "modular-arithmetic": {
+    "description": "Compute (a^b) mod m in O(log b) using fast exponentiation. Modular inverse via Fermat's little theorem when m is prime.",
+    "example": {
+      "title": "Compute 2^10 mod 1000000007",
+      "input": "base=2, exp=10, mod=1e9+7",
+      "output": "1024",
+      "explanation": "Binary exponentiation: 2^10 = (2^5)^2. 2^5 = (2^2)^2 × 2 = 32. 32^2 = 1024. Each step squares and optionally multiplies, halving the exponent. O(log b) multiplications.",
+      "code": "long long power(long long base, long long exp, long long mod) {\n  long long result = 1;\n  base %= mod;\n  while(exp > 0) {\n    if(exp & 1) result = result*base%mod;\n    base = base*base%mod;\n    exp >>= 1;\n  }\n  return result;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-modular.pdf",
+      "ppt":   "assets/ppt/unit3-modular.pptx",
+      "video": "https://www.youtube.com/watch?v=1fN8TJ3yw_Y",
+      "code":  "assets/code/modular-exp.cpp"
+    }
+  },
+  "ford-fulkerson": {
+    "description": "Find maximum flow in a network by repeatedly augmenting along paths from source to sink. BFS augmentation (Edmonds-Karp) gives O(VE²).",
+    "example": {
+      "title": "Maximum flow in a simple 4-node network",
+      "input": "s→A:10, s→B:10, A→B:2, A→t:8, B→t:10",
+      "output": "Max flow = 18",
+      "explanation": "Augment s→A→t (flow=8). Augment s→B→t (flow=10). Total=18. Residual graph allows backward edges to enable flow redistribution in future augmentations.",
+      "code": "int bfs(int s, int t, vector<int>& parent) {\n  fill(parent.begin(),parent.end(),-1);\n  parent[s]=s;\n  queue<pair<int,int>> q;\n  q.push({s,INT_MAX});\n  while(!q.empty()) { /* BFS for augmenting path */ }\n  return 0;\n}\nint maxFlow(int s, int t) {\n  int flow=0, new_flow;\n  while((new_flow=bfs(s,t,parent)))\n    flow+=new_flow;\n  return flow;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-ford-fulkerson.pdf",
+      "ppt":   "assets/ppt/unit3-ford-fulkerson.pptx",
+      "video": "https://www.youtube.com/watch?v=LdOnanfc5TY",
+      "code":  "assets/code/ford-fulkerson.cpp"
+    }
+  },
+  "flow-networks": {
+    "description": "A directed graph where each edge has a capacity. Model real-world constraints like bandwidth, pipes, or bipartite matching as flow networks.",
+    "example": {
+      "title": "Bipartite matching as max flow",
+      "input": "Left: {A,B,C}, Right: {X,Y,Z}, Edges: A-X, A-Y, B-Y, C-Z",
+      "output": "Maximum matching = 3 pairs: A-X, B-Y, C-Z",
+      "explanation": "Add super-source s→{A,B,C} (cap 1 each) and super-sink {X,Y,Z}→t (cap 1 each). Run max-flow. Each unit of flow corresponds to one matched pair.",
+      "code": "// Model bipartite matching as max flow:\n// Source (0) → left nodes (cap 1 each)\n// Left → right (cap 1 per edge)\n// Right → sink (cap 1 each)\n// Max flow = max matching size"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-flow-networks.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=oHy3ddI9X3o",
+      "code":  "assets/code/flow-network.cpp"
+    }
+  },
+  "path-covers": {
+    "description": "Minimum path cover of a DAG: fewest paths to cover all vertices. Equals n minus maximum bipartite matching.",
+    "example": {
+      "title": "Minimum path cover of a 5-node DAG",
+      "input": "Edges: 1→2, 1→3, 2→4, 3→4, 4→5",
+      "output": "Minimum path cover = 2 paths: [1→2→4→5] and [1→3]",
+      "explanation": "Split each node v into v_out and v_in. Add edge v_out→w_in for each DAG edge v→w. Max bipartite matching M gives min path cover = n − |M|.",
+      "code": "// Min path cover = n - maxBipartiteMatching\n// Build: left side = v_out, right side = v_in\n// For edge u→v: add u_out → v_in with cap 1\n// Add source→every u_out (cap 1)\n// Add every v_in→sink (cap 1)\nint minPathCover = n - maxflow(source, sink);"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-path-covers.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=jBlpxPKMSMM",
+      "code":  "assets/code/path-cover.cpp"
+    }
+  },
+  "euler-paths": {
+    "description": "An Eulerian path visits every edge exactly once. Exists in undirected graphs when exactly 0 or 2 vertices have odd degree.",
+    "example": {
+      "title": "Find Eulerian circuit in the Königsberg bridge graph variant",
+      "input": "Graph: 1-2, 1-3, 2-3, 2-4, 3-4",
+      "output": "Eulerian circuit: 1→2→3→4→2→1→3 (or similar)",
+      "explanation": "All vertices have even degree (deg: 1=2,2=3 — wait, check). Hierholzer's: start at any node, follow edges until stuck, then splice in sub-circuits. O(V+E).",
+      "code": "void hierholzer(int u) {\n  while(!adj[u].empty()) {\n    int v = adj[u].back();\n    adj[u].pop_back();\n    hierholzer(v);\n  }\n  circuit.push_back(u);\n}\n// Call hierholzer(start), reverse circuit"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit3-euler-paths.pdf",
+      "ppt":   "assets/ppt/unit3-euler-paths.pptx",
+      "video": "https://www.youtube.com/watch?v=8MpoO2zA2l4",
+      "code":  "assets/code/euler-path.cpp"
+    }
+  },
+  "coin-change": {
+    "description": "Find minimum coins to make a target amount. Classic DP: dp[x] = min coins for amount x.",
+    "example": {
+      "title": "Minimum coins for target = 11 with {1, 5, 6, 9}",
+      "input": "coins = [1, 5, 6, 9], target = 11",
+      "output": "2 coins (5 + 6)",
+      "explanation": "dp[0]=0. For x=1..11: dp[x] = min over all coins c of (dp[x-c]+1). dp[5]=1, dp[6]=1, dp[11]=min(dp[10]+1, dp[6]+1, dp[5]+1)=min(3,2,2)=2.",
+      "code": "vector<int> dp(target+1, INT_MAX);\ndp[0] = 0;\nfor(int x=1;x<=target;x++)\n  for(int c:coins)\n    if(x-c>=0 && dp[x-c]!=INT_MAX)\n      dp[x]=min(dp[x], dp[x-c]+1);\nreturn dp[target];"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-coin-change.pdf",
+      "ppt":   "assets/ppt/unit4-coin-change.pptx",
+      "video": "https://www.youtube.com/watch?v=H9bfqozjoqs",
+      "code":  "assets/code/coin-change.cpp"
+    }
+  },
+  "lis": {
+    "description": "Longest Increasing Subsequence. O(n²) DP or O(n log n) with patience sorting + binary search.",
+    "example": {
+      "title": "LIS of [3, 1, 4, 1, 5, 9, 2, 6]",
+      "input": "arr = [3, 1, 4, 1, 5, 9, 2, 6]",
+      "output": "Length = 4  (e.g. [1, 4, 5, 9] or [1, 4, 5, 6])",
+      "explanation": "O(n log n): maintain 'tails' array where tails[i] = smallest tail of any IS of length i+1. Binary search to update. tails = [1], [1,4], [1,4,5], [1,4,5,9], final length = 4.",
+      "code": "vector<int> tails;\nfor(int x : arr) {\n  auto it = lower_bound(tails.begin(),tails.end(),x);\n  if(it==tails.end()) tails.push_back(x);\n  else *it = x;\n}\nreturn tails.size();"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-lis.pdf",
+      "ppt":   "assets/ppt/unit4-lis.pptx",
+      "video": "https://www.youtube.com/watch?v=CE2b_-XfVDk",
+      "code":  "assets/code/lis.cpp"
+    }
+  },
+  "grid-paths": {
+    "description": "Count or find optimal paths in a grid from top-left to bottom-right, moving only right or down.",
+    "example": {
+      "title": "Count paths in a 3×3 grid",
+      "input": "3×3 grid, move only right or down",
+      "output": "6 distinct paths",
+      "explanation": "dp[i][j] = number of ways to reach (i,j) = dp[i-1][j] + dp[i][j-1]. Base: first row and column = 1. dp[2][2] = dp[1][2]+dp[2][1] = 3+3 = 6.",
+      "code": "vector<vector<int>> dp(n, vector<int>(m,0));\nfor(int i=0;i<n;i++) dp[i][0]=1;\nfor(int j=0;j<m;j++) dp[0][j]=1;\nfor(int i=1;i<n;i++)\n  for(int j=1;j<m;j++)\n    dp[i][j]=dp[i-1][j]+dp[i][j-1];"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-grid-paths.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=t_f0nwwdg5o",
+      "code":  "assets/code/grid-paths.cpp"
+    }
+  },
+  "edit-distance": {
+    "description": "Minimum insert, delete, or replace operations to transform string s into string t. O(nm) DP.",
+    "example": {
+      "title": "Edit distance between 'kitten' and 'sitting'",
+      "input": "s = 'kitten', t = 'sitting'",
+      "output": "3 operations",
+      "explanation": "kitten→sitten (replace k→s), sitten→sittin (replace e→i), sittin→sitting (insert g). dp[i][j]=edit distance for s[0..i] to t[0..j]. Transitions: match (0 cost), insert, delete, replace.",
+      "code": "for(int i=0;i<=n;i++) dp[i][0]=i;\nfor(int j=0;j<=m;j++) dp[0][j]=j;\nfor(int i=1;i<=n;i++)\n  for(int j=1;j<=m;j++)\n    dp[i][j] = s[i-1]==t[j-1] ? dp[i-1][j-1]\n      : 1+min({dp[i-1][j],dp[i][j-1],dp[i-1][j-1]});"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-edit-distance.pdf",
+      "ppt":   "assets/ppt/unit4-edit-distance.pptx",
+      "video": "https://www.youtube.com/watch?v=MiqoA-yF-0M",
+      "code":  "assets/code/edit-distance.cpp"
+    }
+  },
+  "counting-tilings": {
+    "description": "Count ways to tile an n×m board with 1×2 dominoes using bitmask DP over columns.",
+    "example": {
+      "title": "Tile a 2×4 board with 1×2 dominoes",
+      "input": "n=2, m=4 board",
+      "output": "5 distinct tilings",
+      "explanation": "Profile DP: process column by column. State = bitmask of cells already filled. Transition tries all valid domino placements for current column given previous column's state.",
+      "code": "// dp[mask] = ways to fill columns up to current with 'mask' profile\ndp[0] = 1;\nfor(int col=0;col<m;col++)\n  for(int mask=0;mask<(1<<n);mask++)\n    if(dp[mask]) fill(col+1, 0, mask, 0);"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-counting-tilings.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=3F0Zm3QXHUM",
+      "code":  "assets/code/counting-tilings.cpp"
+    }
+  },
+  "coin-problem": {
+    "description": "Greedy coin selection for canonical currency systems. Sort denominations descending; take as many of the largest as possible.",
+    "example": {
+      "title": "Make change for 41 cents with {25, 10, 5, 1}",
+      "input": "coins = [25,10,5,1], target = 41",
+      "output": "25+10+5+1 = 4 coins",
+      "explanation": "Take one 25 (41-25=16). Take one 10 (16-10=6). Take one 5 (6-5=1). Take one 1. Total = 4 coins. Greedy is optimal for this canonical system due to the exchange argument.",
+      "code": "sort(coins.rbegin(), coins.rend());\nint count = 0;\nfor(int c : coins) {\n  while(target >= c) {\n    target -= c;\n    count++;\n  }\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-coin-problem.pdf",
+      "ppt":   "assets/ppt/unit4-coin-problem.pptx",
+      "video": "https://www.youtube.com/watch?v=HzeK7g8cD0Y",
+      "code":  "assets/code/coin-greedy.cpp"
+    }
+  },
+  "task-scheduling": {
+    "description": "Schedule jobs with deadlines and profits to maximise total profit. Greedy: sort by profit, assign each to latest available slot.",
+    "example": {
+      "title": "Schedule jobs: (profit, deadline) = (100,2),(19,1),(27,2),(25,1),(15,3)",
+      "input": "jobs = [(100,2),(19,1),(27,2),(25,1),(15,3)]",
+      "output": "Selected: jobs with profit 100, 27, 15 → total = 142",
+      "explanation": "Sort by profit descending. Try to place each job in the latest available slot ≤ its deadline. Use a disjoint-set to efficiently find the latest free slot.",
+      "code": "sort(jobs.begin(),jobs.end(),[](auto&a,auto&b){\n  return a.profit>b.profit; // sort descending by profit\n});\nvector<int> slot(maxDeadline+1,-1);\nfor(auto& j:jobs) {\n  // find latest free slot ≤ j.deadline\n  for(int t=j.deadline;t>=1;t--)\n    if(slot[t]==-1) { slot[t]=j.id; break; }\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-task-scheduling.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=zPtI8q9gvX8",
+      "code":  "assets/code/task-scheduling.cpp"
+    }
+  },
+  "minimize-sums": {
+    "description": "Pair elements of two arrays to minimize the sum of products. Proof: sort one ascending, the other descending, pair by index.",
+    "example": {
+      "title": "Minimise sum of a[i]*b[i]: a=[1,2,3], b=[4,5,6]",
+      "input": "a = [3,1,2], b = [4,6,5]",
+      "output": "Min sum = 3*6 + 1*5 + 2*4 = 18+5+8 = 31? Optimal: sort a↑, b↓ → a=[1,2,3],b=[6,5,4] → 6+10+12=28",
+      "explanation": "Sort a ascending and b descending, then sum a[i]*b[i]. Rearrangement inequality: this pairing minimises the dot product. Any swap increases the total.",
+      "code": "sort(a.begin(), a.end());          // ascending\nsort(b.begin(), b.end(), greater<int>()); // descending\nlong long sum = 0;\nfor(int i=0;i<n;i++) sum += (long long)a[i]*b[i];"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit4-minimize-sums.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=HzeK7g8cD0Y",
+      "code":  "assets/code/minimize-sums.cpp"
+    }
+  },
+  "points": {
+    "description": "Represent points as (x,y) pairs. Key operations: distance, cross product (turn direction), dot product (angle).",
+    "example": {
+      "title": "Cross product to determine orientation of 3 points",
+      "input": "P=(0,0), Q=(4,4), R=(4,0)",
+      "output": "Cross product = -16 → clockwise (right turn)",
+      "explanation": "Cross product of PQ×PR = (Q-P) × (R-P) = (4,4)×(4,0) = 4*0-4*4 = -16. Negative = clockwise. Zero = collinear. Positive = counter-clockwise.",
+      "code": "struct Point { double x, y; };\n\ndouble cross(Point O, Point A, Point B) {\n  return (A.x-O.x)*(B.y-O.y)\n        -(A.y-O.y)*(B.x-O.x);\n}\n// cross > 0: counter-clockwise\n// cross < 0: clockwise\n// cross = 0: collinear"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-points.pdf",
+      "ppt":   "assets/ppt/unit5-points.pptx",
+      "video": "https://www.youtube.com/watch?v=HYAgJN3x4GA",
+      "code":  "assets/code/geometry-points.cpp"
+    }
+  },
+  "lines": {
+    "description": "Lines defined by two points or ax+by=c form. Key queries: intersection, distance from point to line, on-segment test.",
+    "example": {
+      "title": "Find intersection of two lines",
+      "input": "Line 1: through (0,0) and (2,2). Line 2: through (0,2) and (2,0).",
+      "output": "Intersection at (1, 1)",
+      "explanation": "Line 1: y = x (i.e. x-y=0). Line 2: y = -x+2 (i.e. x+y=2). Solve: x-y=0 and x+y=2 → 2x=2 → x=1, y=1.",
+      "code": "double lineIntersect(double a1,double b1,double c1,\n                     double a2,double b2,double c2,\n                     double& x, double& y) {\n  double det = a1*b2-a2*b1;\n  if(fabs(det)<1e-9) return false; // parallel\n  x=(c1*b2-c2*b1)/det;\n  y=(a1*c2-a2*c1)/det;\n  return true;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-lines.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=HYAgJN3x4GA",
+      "code":  "assets/code/geometry-lines.cpp"
+    }
+  },
+  "convex-polygon": {
+    "description": "Convex hull: the smallest convex polygon containing all given points. Graham scan or Andrew's monotone chain runs in O(n log n).",
+    "example": {
+      "title": "Convex hull of 6 points",
+      "input": "Points: (0,0),(1,1),(2,2),(0,2),(2,0),(1,2)",
+      "output": "Hull vertices: (0,0),(2,0),(2,2),(1,2),(0,2)",
+      "explanation": "Andrew's monotone chain: sort by x then y. Build lower hull (left turns only), then upper hull. Remove points that cause right turns (clockwise) as you add each new point.",
+      "code": "vector<Point> convexHull(vector<Point> pts) {\n  sort(pts.begin(),pts.end());\n  int n=pts.size(), k=0;\n  vector<Point> h(2*n);\n  for(int i=0;i<n;i++) {\n    while(k>=2&&cross(h[k-2],h[k-1],pts[i])<=0) k--;\n    h[k++]=pts[i];\n  }\n  // upper hull...\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-convex-polygon.pdf",
+      "ppt":   "assets/ppt/unit5-convex-polygon.pptx",
+      "video": "https://www.youtube.com/watch?v=B2AJoQSZf4M",
+      "code":  "assets/code/convex-hull.cpp"
+    }
+  },
+  "concave-polygon": {
+    "description": "A polygon that is not convex (has at least one interior angle > 180°). Point-in-polygon test uses ray casting.",
+    "example": {
+      "title": "Ray casting: is point (3,3) inside polygon?",
+      "input": "Polygon: (0,0),(6,0),(6,6),(3,3),(0,6). Point: (3,3)",
+      "output": "Inside the polygon",
+      "explanation": "Cast a horizontal ray from the query point to the right. Count how many polygon edges it crosses. Odd count = inside. Even count = outside. Handle edge cases (ray through vertex).",
+      "code": "bool pointInPolygon(vector<Point>& poly, Point p) {\n  int n=poly.size(), cnt=0;\n  for(int i=0,j=n-1;i<n;j=i++) {\n    if((poly[i].y>p.y)!=(poly[j].y>p.y) &&\n       p.x < (poly[j].x-poly[i].x)*\n             (p.y-poly[i].y)/\n             (poly[j].y-poly[i].y)+poly[i].x)\n      cnt++;\n  }\n  return cnt%2==1;\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-concave-polygon.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=HYAgJN3x4GA",
+      "code":  "assets/code/polygon-point.cpp"
+    }
+  },
+  "distance-formula": {
+    "description": "Euclidean distance √((x₂-x₁)²+(y₂-y₁)²). Prefer squared distance to avoid floating-point issues when only comparison is needed.",
+    "example": {
+      "title": "Distance between (1,2) and (4,6)",
+      "input": "P1=(1,2), P2=(4,6)",
+      "output": "Distance = 5.0",
+      "explanation": "dx=4-1=3, dy=6-2=4. distance=√(3²+4²)=√(9+16)=√25=5. This is a 3-4-5 Pythagorean triple. Squared distance = 25 (integer, avoids sqrt).",
+      "code": "double dist(Point a, Point b) {\n  double dx=a.x-b.x, dy=a.y-b.y;\n  return sqrt(dx*dx + dy*dy);\n}\n// For comparisons only:\nlong long dist2(Point a, Point b) {\n  long long dx=a.x-b.x, dy=a.y-b.y;\n  return dx*dx + dy*dy; // no sqrt needed!\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-distance.pdf",
+      "ppt":   null,
+      "video": "https://www.youtube.com/watch?v=HYAgJN3x4GA",
+      "code":  "assets/code/distance.cpp"
+    }
+  },
+  "all-subsets": {
+    "description": "Generate all 2ⁿ subsets of a set using bitmasks or recursive backtracking.",
+    "example": {
+      "title": "All subsets of {A, B, C}",
+      "input": "set = {A, B, C}, n = 3",
+      "output": "{}, {A}, {B}, {C}, {A,B}, {A,C}, {B,C}, {A,B,C}",
+      "explanation": "Bitmask: iterate mask from 0 to 2³-1. Each bit determines inclusion. Recursive: at each index, choose include or exclude, recurse. Both give identical results.",
+      "code": "// Bitmask approach:\nfor(int mask=0;mask<(1<<n);mask++) {\n  vector<int> subset;\n  for(int i=0;i<n;i++)\n    if(mask&(1<<i)) subset.push_back(arr[i]);\n  process(subset);\n}\n\n// Recursive approach:\nvoid gen(int idx, vector<int>& cur) {\n  if(idx==n) { process(cur); return; }\n  gen(idx+1, cur);             // exclude\n  cur.push_back(arr[idx]);\n  gen(idx+1, cur);             // include\n  cur.pop_back();\n}"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-all-subsets.pdf",
+      "ppt":   "assets/ppt/unit5-all-subsets.pptx",
+      "video": "https://www.youtube.com/watch?v=REOH22Xom6k",
+      "code":  "assets/code/all-subsets.cpp"
+    }
+  },
+  "all-permutations": {
+    "description": "Generate all n! orderings of n elements using backtracking or next_permutation (C++ STL).",
+    "example": {
+      "title": "All permutations of {1, 2, 3}",
+      "input": "arr = [1, 2, 3]",
+      "output": "[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]",
+      "explanation": "At each position, try every unused element. Recursively fill remaining positions. Backtrack by restoring the element. Uses a 'used' boolean array to track availability.",
+      "code": "void permute(vector<int>& arr, int l, int r) {\n  if(l==r) { process(arr); return; }\n  for(int i=l;i<=r;i++) {\n    swap(arr[l], arr[i]);\n    permute(arr, l+1, r);\n    swap(arr[l], arr[i]); // backtrack\n  }\n}\n// Or simply:\ndo { process(arr); }\nwhile(next_permutation(arr.begin(),arr.end()));"
+    },
+    "files": {
+      "notes": "assets/pdfs/unit5-all-permutations.pdf",
+      "ppt":   "assets/ppt/unit5-all-permutations.pptx",
+      "video": "https://www.youtube.com/watch?v=GuTPwotSdYw",
+      "code":  "assets/code/all-permutations.cpp"
+    }
+  }
+}
